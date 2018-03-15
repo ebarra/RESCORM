@@ -9,41 +9,49 @@ export default class Header extends React.Component {
     let trackingTexts = [];
 
     if(typeof this.props.tracking.progress_measure === "number"){
-      trackingTexts.push(this.props.I18n.getTrans("i.progress_measure") + ": " + (this.props.tracking.progress_measure * 100).toFixed(1) + "%");
+      trackingTexts.push("Progreso: " + (this.props.tracking.progress_measure * 100) + "%");
     } else {
-      trackingTexts.push(this.props.I18n.getTrans("i.progress_measure") + ": null");
+      trackingTexts.push("Progreso: sin empezar");
     }
     if(typeof this.props.tracking.score === "number"){
-      trackingTexts.push(this.props.I18n.getTrans("i.score") + ": " + (this.props.tracking.score * 100).toFixed(1) + "%");
+      trackingTexts.push("Puntuación: " + (this.props.tracking.score * 100) + "%");
     } else {
-      trackingTexts.push(this.props.I18n.getTrans("i.score") + ": null");
+      trackingTexts.push("Puntuación: sin intentos");
     }
     if(this.props.user_profile){
-      if((typeof this.props.user_profile.name === "string")){
-        loggedText = (this.props.I18n.getTrans("i.logged_as") + " " + this.props.user_profile.name);
+      if((typeof this.props.user_profile.name === "string" && this.props.user_profile.name !=="Unknown")){
+        loggedText = <span>Logueado como: {this.props.user_profile.name}</span>;
       }
       if(typeof this.props.user_profile.learner_preference === "object"){
         if(typeof this.props.user_profile.learner_preference.difficulty === "number"){
-          trackingTexts.push(this.props.I18n.getTrans("i.difficulty") + ": " + this.props.user_profile.learner_preference.difficulty);
+          trackingTexts.push("Dificultad: " + this.props.user_profile.learner_preference.difficulty);
         }
       }
     }
 
-    let loggedEl = null;
-    if(typeof loggedText === "string"){
-      loggedEl = <p id="logged_user">{loggedText}</p>;
-    }
-    let trackingEls = trackingTexts.map(function(text, index){
+    let trackingEls = trackingTexts.map((text, index)=>{
       return <span key={index}>{text}</span>;
     });
 
-    return (
-      <div className="header_wrapper">
-        <a target="_blank" href="https://github.com/agordillo/RESCORM"><img src="assets/images/react_logo.png"/></a>
-        <h1 id="heading">{this.props.I18n.getTrans("i.title")}</h1>
-        <p id="tracking">{trackingEls}</p>
-        {loggedEl}
-      </div>
-    );
+    if(this.props.game_started){
+      return (
+        <div>
+          <h1 id="heading">Comprueba la Fortaleza de Contraseñas</h1>
+          <p id="tracking">{loggedText}{trackingEls}</p>
+          <button className="" onClick={() => this.props.showModal("Info")}>Info</button>
+          <button className="" onClick={() => this.props.showModal("Progress")}>Progreso</button>
+          <button className="" onClick={() => this.props.showModal("Reset")} >Reset</button>
+          <button className="" onClick={() => this.props.showModal("Stop")} >Stop</button>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <h1 id="heading">Comprueba la Fortaleza de Contraseñas</h1>
+          <button className="" onClick={this.props.startGame}>start</button>
+        </div>
+      );
+    }
+
   }
 }

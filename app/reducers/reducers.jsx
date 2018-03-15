@@ -3,8 +3,10 @@ import trackingReducer from './trackingReducer';
 import scormReducer from './scormReducer';
 import userProfileReducer from './userProfileReducer';
 import waitForUserProfileReducer from './waitForUserProfileReducer';
+import passwordCheckerReducer from './passwordCheckerReducer';
 
 const GlobalState = combineReducers({
+  password: passwordCheckerReducer,
   tracking:trackingReducer,
   scorm:scormReducer,
   user_profile:userProfileReducer,

@@ -44,7 +44,8 @@
     "react-router-dom": "4.2.0",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0",
-    "zip-folder": "^1.0.0"
+    "zip-folder": "^1.0.0",
+    "zxcvbn": "^4.4.2"
   },
   "devDependencies": {
     "babel-cli": "6.26.0",
