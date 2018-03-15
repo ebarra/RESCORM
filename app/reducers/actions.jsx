@@ -33,32 +33,55 @@ export function objectiveAccomplished(objectiveId, accomplishedScore = null){
   };
 }
 
-// Example of action created using the redux-thunk middleware for Redux
-export function objectiveAccomplishedThunk(objectiveId, accomplishedScore = null){
-  return (dispatch, getState) => {
-    const firstState = JSON.parse(JSON.stringify(getState()));
-    dispatch(objectiveAccomplished(objectiveId, accomplishedScore = null));
 
-    // Perform another action after accomplishing the objective
-    const secondState = getState();
-    if((typeof firstState.tracking.objectives[objectiveId] === "object") && (firstState.tracking.objectives[objectiveId].accomplished === false) && (typeof secondState.tracking.objectives[objectiveId] === "object") && (secondState.tracking.objectives[objectiveId].accomplished === true)){
-      // Objective with id objectiveId was accomplished.
-      // Do something and/or dispatch another action.
-      console.log("Objective with id " + objectiveId + " was accomplished.");
-      dispatch(showDialog("Objective with id " + objectiveId + " was accomplished."));
-    }
-  };
-}
-
-export function showDialog(text){
-  return (dispatch, getState) => {
-    alert(text);
-  };
-}
-
-export function finishApp(finished = true){
+function newPass(password, username){
   return {
-    type:'FINISH_APP',
-    finished:finished,
+    type:'NEW_PASSWORD_TO_CHECK',
+    password:password,
+    username:username
+  }
+}
+
+// Uso Thunk para encadenar acciones
+//si la acción newPass cambia y el alumno consigue un objetivo, lo lanzo desde aquí
+//la opción alternativa a hacerlo así, que yo haya visto, es hacerlo en willreceiveprops
+//ver si nextprops ha cambiado el progress y lanzar otra action ahí, pero esto de thunk me ha
+//parecido más correcto
+export function newPassWithScorm(password, username) {
+    return (dispatch, getState) => {
+        const firstState = getState();
+        dispatch(newPass(password, username));
+
+        const secondState = getState();
+        //check if there is a new objectives_accomplished
+        if(secondState.password.objectives_accomplished.length != firstState.password.objectives_accomplished.length) {
+            let last = secondState.password.objectives_accomplished.length-1;
+            console.log("Objetivo cumplido: ", secondState.password.objectives_accomplished[last]);
+            dispatch(objectiveAccomplished(secondState.password.objectives_accomplished[last].id, secondState.password.objectives_accomplished[last].score));
+        }
+      }
+}
+
+export function startgame(){
+  return {
+    type:'START_GAME'
+  };
+}
+
+export function resetgame(){
+  return {
+    type:'RESET_GAME'
+  };
+}
+
+export function endgame(){
+  return {
+    type:'END_GAME'
+  };
+}
+
+export function resetfeedback(){
+  return {
+    type:'RESET_FEEDBACK'
   };
 }
