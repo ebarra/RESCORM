@@ -1,10 +1,17 @@
 import React from 'react';
+import {UI} from '../config/config';
+
 
 export default class Header extends React.Component {
   constructor(props){
     super(props);
   }
   render(){
+    let fullscreenEnabled = UI.with_fullscreen && (document.fullscreenEnabled || document.mozFullScreenEnabled || document.webkitFullscreenEnabled);
+    if (!fullscreenEnabled) {
+      console.log("Browser does not support fullscreen, or it is disabled by the app, we disable the button");
+    }
+
     let loggedText;
     let trackingTexts = [];
 
@@ -40,8 +47,14 @@ export default class Header extends React.Component {
           <p id="tracking">{loggedText}{trackingEls}</p>
           <button className="" onClick={() => this.props.showModal("Info")}>Info</button>
           <button className="" onClick={() => this.props.showModal("Progress")}>Progreso</button>
-          <button className="" onClick={() => this.props.showModal("Reset")} >Reset</button>
+          {UI.with_reset_button &&
+            <button className="" onClick={() => this.props.showModal("Reset")} >Reset</button>}
           <button className="" onClick={() => this.props.showModal("Stop")} >Stop</button>
+          {fullscreenEnabled &&
+            (!this.props.isFullScreen ?
+              <button className="control control_fullscreen" onClick={() => this.props.requestFullScreen()} icon="full_screen">FullScreen</button>:
+              <button className="control control_nofullscreen" onClick={() => this.props.exitFullscreen()} icon="no_full_screen">FullScreen</button>)
+              }
         </div>
       );
     } else {

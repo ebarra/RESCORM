@@ -1,13 +1,14 @@
 import React from 'react';
 import {OBJECTIVES} from '../config/objectives.js';
+import Modal from './Modal.jsx';
 
 export default class ModalProgress extends React.Component {
   constructor(props){
     super(props);
-   }
-
-   render() {
-     return (
+  }
+  render(){
+    return (
+      <Modal show={this.props.show} >
        <div className={"modal-content " + (this.props.show ? "show":"hide")} role="document">
          <div className="modal-header">
            <button type="button" className="close"  onClick={()=>this.props.handleClose("Progress")}><span aria-hidden="true">×</span></button>
@@ -24,6 +25,7 @@ export default class ModalProgress extends React.Component {
                {this.props.game_ended && <div>Has terminado la prueba. Puedes reiniciarla y volver a intentarlo.</div>}
            </div>
         </div>
+      </Modal>
     );
   }
 }
