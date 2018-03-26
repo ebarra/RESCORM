@@ -38,3 +38,10 @@ let processConfig = (function(){
   GLOBAL_CONFIG.debug_scorm_api = ((GLOBAL_CONFIG.debug) && (GLOBAL_CONFIG.debug_scorm_api));
   GLOBAL_CONFIG.debug_scorm_api_window = ((GLOBAL_CONFIG.debug_scorm_api) && (GLOBAL_CONFIG.debug_scorm_api_window));
 })();
+
+
+
+export const UI = {
+  with_reset_button: false,
+  with_fullscreen: true,
+};

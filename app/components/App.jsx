@@ -35,6 +35,8 @@ export class App extends React.Component {
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.showModal = this.showModal.bind(this);
     this.resetState = this.resetState.bind(this);
+    this.requestFullScreen = this.requestFullScreen.bind(this);
+    this.exitFullscreen = this.exitFullscreen.bind(this);
   }
   resetState(){
     this.setState(INITIAL_STATE);
@@ -85,11 +87,49 @@ export class App extends React.Component {
     let modalname = "showModal" + name;
     this.setState({[modalname]:true});
   }
+  requestFullScreen(){
+    let fullscreen = false;
+    if(document.body.requestFullscreen) {
+      document.body.requestFullscreen();
+      fullscreen = true;
+    } else if(document.body.mozRequestFullScreen) {
+      document.body.mozRequestFullScreen();
+      fullscreen = true;
+    } else if(document.body.webkitRequestFullscreen) {
+      document.body.webkitRequestFullscreen();
+      fullscreen = true;
+    } else if(document.body.msRequestFullscreen) {
+      document.body.msRequestFullscreen();
+      fullscreen = true;
+    }
+    if(fullscreen){
+      this.setState({isFullScreen:true});
+    }
+  }
+  exitFullscreen() {
+    let fullscreen = true;
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+      fullscreen = false;
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+      fullscreen = false;
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+      fullscreen = false;
+    } else if (document.msExitFullscreen) {
+    	document.msExitFullscreen();
+      fullscreen = false;
+    }
+    if(!fullscreen){
+      this.setState({isFullScreen:false});
+    }
+  }
   render(){
     return (
       <div id="container">
         <SCORM dispatch={this.props.dispatch} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
-        <Header showModal={this.showModal} startGame={this.startGame} game_started={this.props.password.game_started} objectives_accomplished={this.props.password.objectives_accomplished} user_profile={this.props.user_profile} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
+        <Header isFullScreen={this.state.isFullScreen} requestFullScreen={this.requestFullScreen} exitFullscreen={this.exitFullscreen} showModal={this.showModal} startGame={this.startGame} game_started={this.props.password.game_started} objectives_accomplished={this.props.password.objectives_accomplished} user_profile={this.props.user_profile} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
         <ModalStart show={this.state.showModalStart} handleClose={this.handleCloseModal}/>
         <ModalInfo show={this.state.showModalInfo} handleClose={this.handleCloseModal}/>
         <ModalProgress game_ended={this.props.password.game_ended} objectives_accomplished={this.props.password.objectives_accomplished} show={this.state.showModalProgress} handleClose={this.handleCloseModal} />

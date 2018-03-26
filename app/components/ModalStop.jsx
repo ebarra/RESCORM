@@ -1,7 +1,7 @@
 import React from 'react';
 import {resetgame} from '../reducers/actions.jsx';
 import {OBJECTIVES} from '../config/objectives.js';
-
+import Modal from './Modal.jsx';
 
 export default class ModalStop extends React.Component {
     constructor(props){
@@ -25,19 +25,21 @@ export default class ModalStop extends React.Component {
           }));
       }
       return (
-        <div className={"modal-content " + (this.props.show ? "show":"hide")} role="document">
-          <div className="modal-header">
-            <button type="button" className="close"  onClick={()=>this.props.handleClose("Stop")}><span aria-hidden="true">×</span></button>
-            <h4 className="modal-title">Finalizar la prueba</h4>
-            </div>
-            <div className="modal-body">
-              {modalcontent}
-            </div>
-           <div className="modal-footer">
-             <button type="button" className="btn btn-default" onClick={()=>this.props.handleClose("Stop")}>Continuar</button>
-             <button type="button" className="btn btn-default" onClick={this.resetGame}>Finalizar</button>
-           </div>
-         </div>
+        <Modal show={this.props.show} >
+            <div className={"modal-content " + (this.props.show ? "show":"hide")} role="document">
+              <div className="modal-header">
+                <button type="button" className="close"  onClick={()=>this.props.handleClose("Stop")}><span aria-hidden="true">×</span></button>
+                <h4 className="modal-title">Finalizar la prueba</h4>
+                </div>
+                <div className="modal-body">
+                  {modalcontent}
+                </div>
+               <div className="modal-footer">
+                 <button type="button" className="btn btn-default" onClick={()=>this.props.handleClose("Stop")}>Continuar</button>
+                 <button type="button" className="btn btn-default" onClick={this.resetGame}>Finalizar</button>
+               </div>
+             </div>
+       </Modal>
      );
    }
  }
