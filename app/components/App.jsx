@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import './../assets/scss/main.scss';
+import './../assets/sass/main_styles.sass';
 
 import {GLOBAL_CONFIG} from '../config/config.js';
 import {OBJECTIVES} from '../config/objectives.js';
@@ -65,7 +65,7 @@ export class App extends React.Component {
     }
   }
   componentDidMount(){
-    let all_objectives = OBJECTIVES.map((obj, index)=>{
+    let all_objectives = OBJECTIVES.map((obj, index) => {
       return new Utils.Objective({id:obj.id, progress_measure: obj.progress_measure, score: obj.score});
     });
     this.props.dispatch(addObjectives(all_objectives));

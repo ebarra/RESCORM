@@ -1,0 +1,128 @@
+body 
+  background-color: white
+
+#heading 
+  font-size: 30px
+  margin: 0
+  text-align: center
+
+#activity_feedback
+  text-align: center
+
+#tracking 
+  font-size: 18px
+  color: black
+  margin: 8px
+  text-align: center
+  span 
+    margin-right: 40px
+
+#logged_user 
+  font-size: 18px
+  color: gray
+  margin: 8px
+
+.form_pass
+  text-align: center
+  button
+    margin-left: 30px
+
+.alert 
+  width: 40%
+  margin: auto
+  margin-bottom: 30px
+
+.my_input 
+  display: inline
+  width: 40%
+
+.pass_info
+  width: 80%
+  margin: auto
+
+.objectives 
+  text-align: center
+  margin-bottom: 20px
+
+
+
+/* ----- QUIZ ------ */
+
+.quizHeader 
+  p 
+    font-size: 20px
+    margin-top: 25px
+    margin-bottom: 20px
+
+.question 
+  h1 
+    font-size: 20px
+    margin-top: 20px
+    margin-bottom: 20px
+
+.question 
+  .question_choice 
+    background: white
+    margin: 10px
+    padding: 2px
+    &.questionC1
+      float: left
+      width: 35px
+      margin-top: 9px
+      margin-left: 10px
+    &.questionC2
+      display: inline-block
+      width: auto
+      margin: 12px 8px 12px 8px
+    input
+      &[type="checkbox"] 
+        width: 23px
+        height: 23px
+        cursor: pointer
+        &[disabled]
+          cursor: default
+    p 
+      display: inline-block
+      font-size: 20px
+      margin: 0px 0px 0px 0px
+
+  .question_choice_correct, .question_choice_incorrect
+    color: black
+    border-radius: 25px
+  .question_choice_correct 
+    background: #bdffbd
+  .question_choice_incorrect 
+    background: #ffc8c8
+
+  .questionButtonsWrapper 
+    padding: 10px
+
+div.question div.questionButtonsWrapper button.answerQuestion, div.question div.questionButtonsWrapper button.resetQuestion, div.question div.questionButtonsWrapper button.resetQuiz, div.question div.questionButtonsWrapper button.nextQuestion 
+  padding: 10px
+  margin-left: 10px
+  color: black
+  background: white
+  border: 2px solid black
+  font-size: 15px
+  font-weight: bold
+  cursor: pointer
+
+div.question div.questionButtonsWrapper button[disabled]
+  color: gray
+  border: 2px solid gray
+  cursor: default
+
+
+
+
+/* ----- FINISHSCREEN ------ */
+
+.finish_screen 
+  h1 
+    font-size: 28px
+    padding: 10%
+    text-align: center
+
+
+
+

@@ -10,7 +10,7 @@ export default class ModalEnd extends React.Component {
       <Modal show={this.props.show} >
          <div className={"modal-content " + (this.props.show ? "show":"hide")} role="document">
            <div className="modal-header">
-              <button type="button" className="close"  onClick={()=>this.props.handleClose("End")}><span aria-hidden="true">×</span></button>
+              <button type="button" className="close"  onClick={() =>this.props.handleClose("End")}><span aria-hidden="true">×</span></button>
               <h4 className="modal-title">¡Enhorabuena, terminaste!</h4>
            </div>
            <div className="modal-body">
@@ -21,7 +21,7 @@ export default class ModalEnd extends React.Component {
              <div>
                Sabemos que no necesitas que te enseñemos cómo crear contraseñas seguras, pero aquí te dejamos un pequeño video por si quieres saber más:
              </div>
-             <iframe width="560" height="315" src="https://www.youtube.com/embed/4Ips1NTpG_o" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+             <iframe width="560" height="315" src="https://www.youtube.com/embed/4Ips1NTpG_o" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
            </div>
         </div>
       </Modal>

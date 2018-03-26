@@ -36,7 +36,7 @@ export default class Header extends React.Component {
       }
     }
 
-    let trackingEls = trackingTexts.map((text, index)=>{
+    let trackingEls = trackingTexts.map((text, index) => {
       return <span key={index}>{text}</span>;
     });
 
