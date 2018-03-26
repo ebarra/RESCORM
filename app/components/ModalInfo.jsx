@@ -4,7 +4,7 @@ import Modal from './Modal.jsx';
 export default class ModalInfo extends React.Component {
   constructor(props){
     super(props);
-<<<<<<< Updated upstream
+
   }
   render(){
     return (
