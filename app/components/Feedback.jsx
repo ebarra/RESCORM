@@ -53,7 +53,7 @@ export default class Feedback extends React.Component {
     } else {
       return (
        <div className="main_box">
-         {UI.initial_text}
+         <div className="main_text">{UI.initial_text}</div>
        </div>
        );
     }

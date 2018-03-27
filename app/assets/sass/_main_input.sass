@@ -1,0 +1,34 @@
+
+.form_pass
+  .input_box
+    .input_case
+      width: 100%
+      height: 4.5em
+      background-color: $maincolor
+      .my_input 
+        font-size: 1.5em
+        padding: .9em 1.3em
+        display: inline
+        border: 0
+        width: 100%
+        background-color: transparent
+        &::placeholder
+          color: rgba(0,0,0,.5)
+  .character_box
+    font-weight: 600
+    padding: 1em
+    & > span
+      margin-right: 2em
+
+.pass_info
+  color: $maincolor
+  width: 90%
+  margin: 0 auto
+
+.control
+  @include hand-cursor
+
+.alert 
+  width: 40%
+  margin: auto
+  margin-bottom: 30px

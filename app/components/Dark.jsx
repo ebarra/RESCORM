@@ -24,7 +24,7 @@ export default class Dark extends React.Component {
              in={this.state.in}
              timeout={500}
              classNames="fade"
-             onExited={()=>this.hideCompletely()}>
+             onExited={() => this.hideCompletely()}>
             <div className={"dark-opacity " + (this.state.hide ? "hide" : "show")} onClick={this.props.onClick}/>
           </CSSTransition>);
   }

@@ -59,6 +59,8 @@ export const UI = {
   message_good: "lo has hecho bastante bien, pero has fallado algunas. revisa el siguiente video para aprender a crear contraseñas fiables:",
   message_ok: "no has acertado muchas. es muy importante crear contraseñas seguras para proteger tu intimidad. te dejamos un video para que aprendas un poco más:",
   modal_inst: "para comprobar la contraseña pulsa intro o haz click en el botón de check. tienes todos los intentos que necesites. los controles son muy sencillos:",
-  with_reset_button: false,
-  with_fullscreen: true
+  with_reset_button: true,
+  with_fullscreen: true,
+  progress_text: "contraseñas creadas",
+  task_list: "contraseñas por crear"
 };
