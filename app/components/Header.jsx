@@ -6,6 +6,9 @@ import Icon from './Icon.jsx';
 export default class Header extends React.Component {
   constructor(props){
     super(props);
+    this.state = {show_items: false};
+    this.toggleMenuMob = this.toggleMenuMob.bind(this);
+    this.hideMenuMob = this.hideMenuMob.bind(this);
   }
   toggleMenuMob(){
     this.setState({show_items: !this.state.show_items});
@@ -49,7 +52,11 @@ export default class Header extends React.Component {
     let trackingEls = trackingTexts.map((text, index) => {
       return <span key={index}>{text}</span>;
     });
-    
+
+    let mobileMenuTop = {
+      top: "-8.7em"
+    };
+
     return (
       <div className="control_box">
           {this.props.game_started ?
