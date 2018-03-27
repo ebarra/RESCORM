@@ -3,15 +3,19 @@
 //----------- CONTROL BAR ------------
 
 .control_bar
-  @include flex
-  justify-content: space-between
   font-weight: bold
   color: $maincolor
   font-size: 1.5em
   background-color: rgba(255,255,255,.15)
-  padding: 0 1em
-  height: 4em
-  margin-top: 1em
+  padding: 0 1.2em
+  height: 5em
+  //margin-top: 1em
+  .control_main_text
+    color: white
+    padding-top: 1.15em
+  .control_text
+    @include flex
+    justify-content: space-between
 
   //----------- CONTROLS ------------
 
@@ -19,13 +23,19 @@
     @include flex
     justify-content: flex-start
     @include hand_cursor
+    padding-top: .3em
     .start_game_text
       margin-right: .5em
     .control
-      &:hover
-        @include hover_scale
+      &.control_start
+        font-size: .8em
+        &:hover
+          @include hover_scale
   .credits
     @include hand_cursor
+    @include transition (all 300ms cubic-bezier(0.4, 0, 0.2, 1))
+    &:hover
+      @include hover_opacity
 
   .controls_menu
     margin-right: 4em
@@ -45,40 +55,6 @@
     .control
       fill: $secondarycolor
       margin-right: .2em
-    
-  .app_controls
-    width: 22%
-    @include flex
-    justify-content: center
-    margin-left: 6em
-    .control
-      svg
-        //width: 1.5em
-        //height: 1.5em
-      &.control_right_arrow, &.control_left_arrow
-        @include hand_cursor
-      &.control_right_arrow
-        margin-left: .05em
-      &.control_left_arrow
-        //@include transform(rotate(180deg))
-        margin-right: .5em
-      &.control_true, &.control_false
-        font-size: 1.5em
-        margin-right: .3em
-        @include hand_cursor
-        &.button_pressed
-          fill-opacity: .3
-          @include transform(scale(1.15,1.15))
-        &.disabled
-          pointer-events: none
-          @include cursor
-          fill-opacity: .3
-      &:hover
-        @include hover_scale
-      &.control_true
-        margin-right: .4em
-      &.control_false
-        margin-left: .1em
 
   .progress_score
     width: 40%

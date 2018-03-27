@@ -20,9 +20,13 @@ import ModalProgress from './ModalProgress.jsx';
 import ModalReset from './ModalReset.jsx';
 import ModalStop from './ModalStop.jsx';
 import ModalEnd from './ModalEnd.jsx';
+import ModalCredits from './ModalCredits.jsx';
 import ModalFeedback from './ModalFeedback.jsx';
+import Dark from './Dark.jsx';
+import {UI} from '../config/config';
 
-const INITIAL_STATE = { value: '', hide_pass: false, showModalFeedback:false, showModalStart: false, showModalInfo: false, showModalEnd: false, showModalProgress: false, showModalReset: false, showModalStop: false };
+
+const INITIAL_STATE = { value: '', hide_pass: false, showModalFeedback:false, showModalStart: false, showModalInfo: false, showModalEnd: false, showModalProgress: false, showModalReset: false, showModalCredits:false,  showModalStop: false };
 
 export class App extends React.Component {
   constructor(props){
@@ -126,8 +130,16 @@ export class App extends React.Component {
     }
   }
   render(){
+    let showDarkLayer = this.state.showModalStart || this.state.showModalInfo || this.state.showModalProgress || this.state.showModalReset || this.state.showModalStop || this.state.showModalEnd || this.state.showModalCredits;
     return (
       <div id="container">
+        <div className="main_header">
+          <img className="pass_check_logo" src={UI.app_logo}/>
+          <div className="educalab">
+            <p className="text_educalab">{UI.educalab_text}</p>
+            <img className="educalab_logo" src={UI.educalab_logo}/>
+          </div>
+        </div>
         <SCORM dispatch={this.props.dispatch} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
         <Header isFullScreen={this.state.isFullScreen} requestFullScreen={this.requestFullScreen} exitFullscreen={this.exitFullscreen} showModal={this.showModal} startGame={this.startGame} game_started={this.props.password.game_started} objectives_accomplished={this.props.password.objectives_accomplished} user_profile={this.props.user_profile} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
         <ModalStart show={this.state.showModalStart} handleClose={this.handleCloseModal}/>
@@ -139,6 +151,8 @@ export class App extends React.Component {
         <ModalEnd number_of_tries={this.props.password.number_of_tries} tracking={this.props.tracking} show={this.state.showModalEnd} handleClose={this.handleCloseModal}/>
         <MyEntry handleSubmit={this.handleSubmit} password={this.props.password.password} contains={this.props.password.contains} conclussion={this.props.password.conclussion} handleInputChange={this.handleInputChange} handleEyeChange={this.handleEyeChange} value={this.state.value} hide_pass={this.state.hide_pass} dispatch={this.props.dispatch} user_profile={this.props.user_profile} config={GLOBAL_CONFIG}/>
         <Feedback hide_pass={this.state.hide_pass} password={this.props.password.password} sequence={this.props.password.sequence} conclussion={this.props.password.conclussion} recommendations={this.props.password.recommendations} crack_times_display={this.props.password.crack_times_display}/>
+        <ModalCredits show={this.state.showModalCredits} handleClose={this.handleCloseModal} />
+        <Dark show={showDarkLayer} onClick={() => this.handleCloseModal("all")}/>
       </div>
     );
   }
