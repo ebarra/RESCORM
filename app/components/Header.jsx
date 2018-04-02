@@ -93,6 +93,26 @@ export default class Header extends React.Component {
                         <Icon className="control control_nofullscreen" onClick={() => this.props.exitFullscreen()} icon="no_full_screen_fill"/>)
                         }
                 </div>
+
+                {/*inicio puntuación*/}
+                {/*<div className={this.props.game.game_ended ? "hide":"progress_score"}>
+
+                  <div className="time_elapsed">
+                    <div className="number_progress number_time">{clock}</div>
+                    <div className="text_progress time_text">tiempo</div>
+                  </div>
+
+                  <div className="questions_answered">
+                    <div className="number_progress number_answered">{progress}/{QUESTIONS.length}</div>
+                    <div className="progress_bar"><div className="progress_fill" style={progressStyle}/></div>
+                  </div>
+
+                  <div className="user_score">
+                    <div className="number_progress score_number">{this.props.user_score}</div>
+                    <div className="text_progress score_text">puntuación</div>
+                  </div>
+                </div>*/} {/*fin puntuación*/}
+
               </div>
 
             </div>
@@ -115,32 +135,3 @@ export default class Header extends React.Component {
     );
   }
 }
-
-/*
-    if(this.props.game_started){
-      return (
-        <div>
-          <h1 id="heading">Comprueba la Fortaleza de Contraseñas</h1>
-          <p id="tracking">{loggedText}{trackingEls}</p>
-          <button className="" onClick={() => this.props.showModal("Info")}>Info</button>
-          <button className="" onClick={() => this.props.showModal("Progress")}>Progreso</button>
-          {UI.with_reset_button &&
-            <button className="" onClick={() => this.props.showModal("Reset")} >Reset</button>}
-          <button className="" onClick={() => this.props.showModal("Stop")} >Stop</button>
-          {fullscreenEnabled &&
-            (!this.props.isFullScreen ?
-              <button className="control control_fullscreen" onClick={() => this.props.requestFullScreen()} icon="full_screen">FullScreen</button>:
-              <button className="control control_nofullscreen" onClick={() => this.props.exitFullscreen()} icon="no_full_screen">FullScreen</button>)
-              }
-        </div>
-      );
-    } else {
-      return (
-        <div>
-          <h1 id="heading">Comprueba la Fortaleza de Contraseñas</h1>
-          <button className="" onClick={this.props.startGame}>start</button>
-        </div>
-      );
-    }
-  }
-}*/

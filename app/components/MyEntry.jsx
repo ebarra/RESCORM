@@ -5,13 +5,16 @@ export default class MyEntry extends React.Component {
   render() {
     let eye_open = <span className="glyphicon glyphicon-eye-open open" onClick={this.props.handleEyeChange}></span>;
     let eye_closed = <span className="glyphicon glyphicon-eye-close closed" onClick={this.props.handleEyeChange}></span>;
-    let text;
+    let text, level;
     if(this.props.conclussion===4){
-      text = "La contraseña introducida es fuerte";
+      text = "la contraseña introducida es fuerte";
+      level = "secure";
     } else if(this.props.conclussion===3 || this.props.conclussion===2){
-      text = "La contraseña introducida es media";
+      text = "la contraseña introducida es media";
+      level = "medium";
     } else {
-      text = "La contraseña introducida es débil";
+      text = "la contraseña introducida es débil";
+      level = "weak";
     }
     return (
       <form className="form_pass" onSubmit={this.props.handleSubmit}>
@@ -34,6 +37,32 @@ export default class MyEntry extends React.Component {
             </div>
 
               {this.props.password && <div>Barrita amarilla llena hasta el: {this.props.conclussion}</div>}
+
+              <div className="bar_box">
+                <ul className="bars">
+                  <li className="bar bar01"></li>
+                  <li className="bar bar02"></li>
+                  <li className="bar bar03"></li>
+                  <li className="bar bar04"></li>
+                  <li className="bar bar05"></li>
+                  <li className="bar bar06"></li>
+                  <li className="bar bar07"></li>
+                  <li className="bar bar08"></li>
+                  <li className="bar bar09"></li>
+                  <li className="bar bar10"></li>
+                  <li className="bar bar11"></li>
+                  <li className="bar bar12"></li>
+                  <li className="bar bar13"></li>
+                  <li className="bar bar14"></li>
+                  <li className="bar bar15"></li>
+                  <li className="bar bar16"></li>
+                  <li className="bar bar17"></li>
+                  <li className="bar bar18"></li>
+                  <li className="bar bar19"></li>
+                  <li className="bar bar20"></li>
+                </ul>
+              </div>
+
               <div className="character_box">
                 <span className={this.props.password ? "bright":"dark"}>{this.props.password && this.props.password.length} caracteres</span>
                 <span className={this.props.contains.lowercase? "bright":"dark"}> minúsculas</span>
@@ -42,7 +71,7 @@ export default class MyEntry extends React.Component {
                 <span className={this.props.contains.special? "bright":"dark"}> símbolos</span>
                 <span className={this.props.contains.spaces? "bright":"dark"}> espacios</span> 
               </div>
-              {this.props.password && <div>{text}</div>}
+              {this.props.password && <div className={"password_feedback " + level}>{text}</div>}
       </form>
     );
   }

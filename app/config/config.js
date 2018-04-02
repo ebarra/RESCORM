@@ -48,7 +48,7 @@ export const UI = {
   app_logo:"assets/images/logos/passcheck_logo.svg",
   type_app_logo:"",
   educalab_text:"una aplicación de",
-  educalab_logo:"assets/images/logos/educalab_logo_white.svg",
+  educalab_logo:"assets/images/logos/elab_logo_white.svg",
   main_text: "comprueba la fortaleza de tus contraseñas",
   initial_text:"comprueba la fortaleza de tus contraseñas con passcheck una webapp de educalab",
   instructions:"para comprobar la contraseña pulsa intro o haz click en el botón de check. tienes todos los intentos que necesites. los controles son muy sencillos:",
