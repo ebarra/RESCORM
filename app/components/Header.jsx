@@ -24,34 +24,6 @@ export default class Header extends React.Component {
       console.log("Browser does not support fullscreen, or it is disabled by the app, we disable the button");
     }
 
-    let loggedText;
-    let trackingTexts = [];
-
-    if(typeof this.props.tracking.progress_measure === "number"){
-      trackingTexts.push("Progreso: " + (this.props.tracking.progress_measure * 100) + "%");
-    } else {
-      trackingTexts.push("Progreso: sin empezar");
-    }
-    if(typeof this.props.tracking.score === "number"){
-      trackingTexts.push("Puntuación: " + (this.props.tracking.score * 100) + "%");
-    } else {
-      trackingTexts.push("Puntuación: sin intentos");
-    }
-    if(this.props.user_profile){
-      if((typeof this.props.user_profile.name === "string" && this.props.user_profile.name !=="Unknown")){
-        loggedText = <span>Logueado como: {this.props.user_profile.name}</span>;
-      }
-      if(typeof this.props.user_profile.learner_preference === "object"){
-        if(typeof this.props.user_profile.learner_preference.difficulty === "number"){
-          trackingTexts.push("Dificultad: " + this.props.user_profile.learner_preference.difficulty);
-        }
-      }
-    }
-
-    let trackingEls = trackingTexts.map((text, index) => {
-      return <span key={index}>{text}</span>;
-    });
-
     let mobileMenuTop = {
       top: "-8.7em"
     };
@@ -100,19 +72,17 @@ export default class Header extends React.Component {
                       </div>
               </div>
 
-                <div className="progress_score" >
-                  <div className="questions_answered">
-                    <div className="number_progress number_answered">{progress}/{OBJECTIVES.length}</div>
-                    <div className="progress_bar"><div className="progress_fill" style={progressStyle}/></div>
-                  </div>
-
-                  <div className="user_score">
-                    <div className="number_progress score_number">{user_score*10}</div>
-                    <div className="text_progress score_text">puntuación</div>
-                  </div>
+              <div className="progress_score" >
+                <div className="questions_answered">
+                  <div className="number_progress number_answered">{progress}/{OBJECTIVES.length}</div>
+                  <div className="progress_bar"><div className="progress_fill" style={progressStyle}/></div>
                 </div>
 
-
+                <div className="user_score">
+                  <div className="number_progress score_number">{user_score*10}</div>
+                  <div className="text_progress score_text">puntuación</div>
+                </div>
+              </div>
 
             </div>
           ) : (

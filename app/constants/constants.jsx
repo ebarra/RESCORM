@@ -28,7 +28,7 @@ export const INITIAL_STATE = {
       crack_times_display: {offline_fast_hashing_1e10_per_second: "", offline_slow_hashing_1e4_per_second: "", online_no_throttling_10_per_second: "", online_throttling_100_per_hour: ""},
       recommendations: [],
       activity_feedback: "",
-      conclussion: 0,
+      conclussion: -1,
       sequence: [],
       objectives_accomplished: [],
       objectives_repeated: []

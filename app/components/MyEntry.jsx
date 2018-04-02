@@ -29,30 +29,30 @@ export default class MyEntry extends React.Component {
               </div>
             </div>
 
-              {this.props.password && <div>Barrita amarilla llena hasta el: {this.props.conclussion}</div>}
+              {<div>Barrita amarilla llena hasta el: {this.props.conclussion}</div>}
 
               <div className="bar_box">
                 <ul className="bars">
-                  <li className="bar bar01"></li>
-                  <li className="bar bar02"></li>
-                  <li className="bar bar03"></li>
-                  <li className="bar bar04"></li>
-                  <li className="bar bar05"></li>
-                  <li className="bar bar06"></li>
-                  <li className="bar bar07"></li>
-                  <li className="bar bar08"></li>
-                  <li className="bar bar09"></li>
-                  <li className="bar bar10"></li>
-                  <li className="bar bar11"></li>
-                  <li className="bar bar12"></li>
-                  <li className="bar bar13"></li>
-                  <li className="bar bar14"></li>
-                  <li className="bar bar15"></li>
-                  <li className="bar bar16"></li>
-                  <li className="bar bar17"></li>
-                  <li className="bar bar18"></li>
-                  <li className="bar bar19"></li>
-                  <li className="bar bar20"></li>
+                  <li className={"bar bar01 " + (this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar02 " + (this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar03 " + (this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar04 " + (this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar05 " + (this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar06 " + (this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar07 " + (this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar08 " + (this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar09 " + (this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar10 " + (this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar11 " + (this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar12 " + (this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar13 " + (this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar14 " + (this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar15 " + (this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar16 " + (this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar17 " + (this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar18 " + (this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar19 " + (this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar20 " + (this.props.conclussion>3 ? "fill":"")}></li>
                 </ul>
               </div>
 
