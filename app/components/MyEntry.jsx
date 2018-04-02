@@ -18,13 +18,16 @@ export default class MyEntry extends React.Component {
             <div className="input_box">
 
               <div className="input_case">
-                <input className="my_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" id="mypassword" placeholder="Introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} />
-                 { this.props.hide_pass ? eye_closed: eye_open }
+                <div className="input_text">
+                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" id="mypassword" placeholder="Introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} />
+                   { this.props.hide_pass ? eye_closed: eye_open }
+                </div>
+                {/*<button type="submit" >Comprobar</button>*/}
+                <div className="eye_box">  
+                  <Icon className="control control_eye"  viewBox="0 0 63.4 40.4" onClick={this.props.startGame} icon="eye"/>
+                </div>
               </div>
-              {/*<button type="submit" >Comprobar</button>*/}
-              <div className="eye_box">  
-                <Icon className="control control_eye"  viewBox="0 0 63.4 40.4" onClick={this.props.startGame} icon="eye"/>
-              </div>
+
               <div className="check_box">
                 <Icon className="control control_check" viewBox="0 0 45.5 41.7" onClick={this.props.startGame} icon="check"/>
               </div>
