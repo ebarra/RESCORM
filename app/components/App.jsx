@@ -153,7 +153,7 @@ export class App extends React.Component {
           </div>
         </div>
         <SCORM dispatch={this.props.dispatch} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
-        <Header isFullScreen={this.state.isFullScreen} requestFullScreen={this.requestFullScreen} exitFullscreen={this.exitFullscreen} showModal={this.showModal} startGame={this.startGame} game_started={this.props.password.game_started} objectives_accomplished={this.props.password.objectives_accomplished} user_profile={this.props.user_profile} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
+        <Header isFullScreen={this.state.isFullScreen} requestFullScreen={this.requestFullScreen} exitFullscreen={this.exitFullscreen} showModal={this.showModal} startGame={this.startGame} game_started={this.props.password.game_started} game_ended={this.props.password.game_ended} objectives_accomplished={this.props.password.objectives_accomplished} user_profile={this.props.user_profile} tracking={this.props.tracking} config={GLOBAL_CONFIG}/>
         <ModalStart show={this.state.showModalStart} handleClose={this.handleCloseModal}/>
         <ModalInfo show={this.state.showModalInfo} handleClose={this.handleCloseModal}/>
         <ModalProgress game_ended={this.props.password.game_ended} objectives_accomplished={this.props.password.objectives_accomplished} show={this.state.showModalProgress} handleClose={this.handleCloseModal} />

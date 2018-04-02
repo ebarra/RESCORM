@@ -40,11 +40,14 @@ export default class Header extends React.Component {
             <div className="control_bar">
               <div className="control_main_text">{UI.main_text}</div>
               <div className="control_text">
-                {!this.props.tracking.finished &&
                   <div className="start_game">
-                    <span className="start_game_text" onClick={this.props.startGame}>prueba terminada</span>
+                    <span className="start_game_text">prueba terminada</span>
+                      {fullscreenEnabled &&
+                        (!this.props.isFullScreen ?
+                          <Icon className="control control_fullscreen" onClick={() => this.props.requestFullScreen()} icon="full_screen_fill"/>:
+                          <Icon className="control control_nofullscreen" onClick={() => this.props.exitFullscreen()} icon="no_full_screen_fill"/>)
+                          }
                   </div>
-                }
                 <div className="credits" onClick={() => this.props.showModal("Credits")}>créditos</div>
               </div>
             </div>
@@ -111,12 +114,10 @@ export default class Header extends React.Component {
             <div className="control_bar">
               <div className="control_main_text">{UI.main_text}</div>
               <div className="control_text">
-                {!this.props.tracking.finished &&
                   <div className="start_game">
                     <span className="start_game_text" onClick={this.props.startGame}>empezar prueba</span>
                     <Icon className="control control_start" onClick={this.props.startGame} icon="start"/>
                   </div>
-                }
                 <div className="credits" onClick={() => this.props.showModal("Credits")}>créditos</div>
               </div>
             </div>
