@@ -1,4 +1,15 @@
 
+.password_feedback
+  font-size: calc(3vw + .7em)
+  font-weight: 900
+  text-align: center
+  margin-bottom: .4em
+  &.secure
+    color: $green
+  &.medium
+    color: $orange
+  &.weak
+    color: $red
 
 //----------- MAIN BOX ----------------
 
@@ -74,7 +85,7 @@
 
 
 @media (max-width: 1024px)
-  
+
   .main_box
     .image_box
       .quiz_image
@@ -100,7 +111,7 @@
           width: 100%
 
 
-@media (max-width: 823px) and (orientation: landscape) 
+@media (max-width: 823px) and (orientation: landscape)
 
   .main_box
     height: calc(100vh - 8.3em)
@@ -129,7 +140,7 @@
 
 
 @media (max-width: 800px)
-  
+
   .main_box
     .image_box
       .quiz_image
@@ -213,13 +224,13 @@
       padding: .8em 3em .8em 1em
 
 
-@media (max-width: 600px) 
+@media (max-width: 600px)
   .main_box
     .image_box
       .quiz_image
         &.horizontal
           width: 274%
-  @media (max-height: 320px) 
+  @media (max-height: 320px)
     .main_box
       .image_box
         .quiz_image
@@ -249,7 +260,7 @@
       .quiz_image
         &.horizontal
           width: 334%
-  @media (max-height: 732px) 
+  @media (max-height: 732px)
     .main_box
       .image_box
         .quiz_image
@@ -257,15 +268,15 @@
             width: 288%
 
 
-@media (max-width: 375px) 
-  @media (max-height: 812px) 
-    .main_box   
+@media (max-width: 375px)
+  @media (max-height: 812px)
+    .main_box
       .image_box
         .quiz_image
           &.horizontal
             width: 361.2%
-  @media (max-height: 667px) 
-    .main_box   
+  @media (max-height: 667px)
+    .main_box
       .image_box
         .quiz_image
           &.horizontal
@@ -295,4 +306,3 @@
       .quiz_image
         &.horizontal
           width: 266%
-

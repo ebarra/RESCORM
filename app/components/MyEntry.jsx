@@ -2,37 +2,31 @@ import React from 'react';
 import Icon from './Icon.jsx';
 
 export default class MyEntry extends React.Component {
+  componentDidMount(){
+    this.passInput.focus();
+  }
+  componentDidUpdate(){
+    console.log("reset focus on input field");
+    this.passInput.focus();
+  }
   render() {
-    let eye_open = <span className="glyphicon glyphicon-eye-open open" onClick={this.props.handleEyeChange}></span>;
-    let eye_closed = <span className="glyphicon glyphicon-eye-close closed" onClick={this.props.handleEyeChange}></span>;
-    let text, level;
-    if(this.props.conclussion===4){
-      text = "la contraseña introducida es fuerte";
-      level = "secure";
-    } else if(this.props.conclussion===3 || this.props.conclussion===2){
-      text = "la contraseña introducida es media";
-      level = "medium";
-    } else {
-      text = "la contraseña introducida es débil";
-      level = "weak";
-    }
     return (
-      <form className="form_pass" onSubmit={this.props.handleSubmit}>
+      <form className="form_pass">
             <div className="input_box">
 
               <div className="input_case">
                 <div className="input_text">
-                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" id="mypassword" placeholder="Introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} />
-                   { this.props.hide_pass ? eye_closed: eye_open }
+                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" placeholder="Introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} ref={(input) => { this.passInput = input; }} />
+
                 </div>
                 {/*<button type="submit" >Comprobar</button>*/}
-                <div className="eye_box">  
-                  <Icon className="control control_eye"  viewBox="0 0 63.4 40.4" onClick={this.props.startGame} icon="eye"/>
+                <div className="eye_box">
+                  <Icon className={this.props.hide_pass ? "control control_eye":"control control_eye open"}  viewBox="0 0 63.4 40.4" onClick={this.props.handleEyeChange} icon="eye"/>
                 </div>
               </div>
 
               <div className="check_box">
-                <Icon className="control control_check" viewBox="0 0 45.5 41.7" onClick={this.props.startGame} icon="check"/>
+                <Icon className="control control_check" viewBox="0 0 45.5 41.7" onClick={this.props.handleSubmit} icon="check"/>
               </div>
             </div>
 
@@ -69,9 +63,8 @@ export default class MyEntry extends React.Component {
                 <span className={this.props.contains.uppercase? "bright":"dark"}> mayúsculas</span>
                 <span className={this.props.contains.numbers? "bright":"dark"}> números</span>
                 <span className={this.props.contains.special? "bright":"dark"}> símbolos</span>
-                <span className={this.props.contains.spaces? "bright":"dark"}> espacios</span> 
+                <span className={this.props.contains.spaces? "bright":"dark"}> espacios</span>
               </div>
-              {this.props.password && <div className={"password_feedback " + level}>{text}</div>}
       </form>
     );
   }

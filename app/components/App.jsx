@@ -52,13 +52,13 @@ export class App extends React.Component {
     }
   }
   handleSubmit(event) {
-    event.preventDefault();
-    this.setState({ value: "" });
+    //event.preventDefault();
+    console.log("entra")
     this.props.dispatch(newPassWithScorm(this.state.value, this.props.user_profile.name));
+    this.setState({ value: "" });
   }
   handleEyeChange(event) {
-    let new_state = event.target.classList.contains("open") ? true : false;
-    this.setState({hide_pass: new_state});
+    this.setState({hide_pass: !this.state.hide_pass});
   }
   componentWillReceiveProps(nextProps){
     if(nextProps.password.game_started && nextProps.password.activity_feedback!=="" && this.state.showModalFeedback===false){
@@ -79,12 +79,16 @@ export class App extends React.Component {
     this.setState({ value: "", showModalStart: true });
   }
   handleCloseModal(name) {
-    let modalname = "showModal" + name;
-    this.setState({[modalname]: false});
-    if(modalname==="showModalFeedback"){
-      this.props.dispatch(resetfeedback());
-    } else if(modalname==="showModalEnd"){
-      this.props.dispatch(endgame());
+    if(name === "all"){
+      this.setState({showModalFeedback:false, showModalStart: false, showModalInfo: false, showModalEnd: false, showModalProgress: false, showModalReset: false, showModalCredits:false,  showModalStop: false });
+    } else {
+      let modalname = "showModal" + name;
+      this.setState({[modalname]: false});
+      if(modalname==="showModalFeedback"){
+        this.props.dispatch(resetfeedback());
+      } else if(modalname==="showModalEnd"){
+        this.props.dispatch(endgame());
+      }
     }
   }
   showModal(name){
