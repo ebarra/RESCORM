@@ -8,7 +8,6 @@ export default class Feedback extends React.Component {
   constructor(props){
     super(props);
    }
-
    render(){
      let text, level;
      if(this.props.conclussion===4){

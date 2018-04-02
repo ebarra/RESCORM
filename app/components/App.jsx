@@ -52,7 +52,7 @@ export class App extends React.Component {
     }
   }
   handleSubmit(event) {
-    //event.preventDefault();
+    event.preventDefault();
     console.log("entra")
     this.props.dispatch(newPassWithScorm(this.state.value, this.props.user_profile.name));
     this.setState({ value: "" });

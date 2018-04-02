@@ -11,7 +11,7 @@ export default class MyEntry extends React.Component {
   }
   render() {
     return (
-      <form className="form_pass">
+      <form className="form_pass" onSubmit={this.props.handleSubmit}>
             <div className="input_box">
 
               <div className="input_case">
@@ -19,7 +19,6 @@ export default class MyEntry extends React.Component {
                   <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" placeholder="Introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} ref={(input) => { this.passInput = input; }} />
 
                 </div>
-                {/*<button type="submit" >Comprobar</button>*/}
                 <div className="eye_box">
                   <Icon className={this.props.hide_pass ? "control control_eye":"control control_eye open"}  viewBox="0 0 63.4 40.4" onClick={this.props.handleEyeChange} icon="eye"/>
                 </div>
