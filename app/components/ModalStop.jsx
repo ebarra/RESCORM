@@ -1,5 +1,5 @@
 import React from 'react';
-import {resetgame} from '../reducers/actions.jsx';
+import {resetgame, endgame} from '../reducers/actions.jsx';
 import {OBJECTIVES} from '../config/objectives.js';
 import Modal from './Modal.jsx';
 import Icon from './Icon.jsx';
@@ -9,10 +9,16 @@ export default class ModalStop extends React.Component {
     constructor(props){
       super(props);
       this.resetGame = this.resetGame.bind(this);
+      this.finishGame = this.finishGame.bind(this);
     }
     resetGame(){
       this.props.handleClose("Stop");
       this.props.dispatch(resetgame());
+      this.props.resetState();
+    }
+    finishGame(){
+      this.props.handleClose("Stop");
+      this.props.dispatch(endgame());
       this.props.resetState();
     }
     render() {
@@ -44,7 +50,7 @@ export default class ModalStop extends React.Component {
                   <div className="btn btn-red" onClick={ () => this.props.handleClose("Stop")}>cancelar</div>
                   {this.props.game_ended ?
                     <div className="btn btn-green" onClick={UI.with_reset_button ? this.resetGame:this.finishGame}>aceptar</div> :
-                    <div className="btn btn-green" onClick={this.endGame}>aceptar</div>
+                    <div className="btn btn-green" onClick={this.finishGame}>aceptar</div>
                   }
                 </div>
                </div>

@@ -29,8 +29,6 @@ export default class MyEntry extends React.Component {
               </div>
             </div>
 
-              {<div>Barrita amarilla llena hasta el: {this.props.conclussion}</div>}
-
               <div className="bar_box">
                 <ul className="bars">
                   <li className={"bar bar01 " + (this.props.conclussion>=0 ? "fill":"")}></li>

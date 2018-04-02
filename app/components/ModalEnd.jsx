@@ -6,6 +6,12 @@ import {UI} from '../config/config.js';
 export default class ModalEnd extends React.Component {
   constructor(props){
     super(props);
+    this.finishGame = this.finishGame.bind(this);
+  }
+  finishGame(){
+    this.props.handleClose("Stop");
+    this.props.dispatch(endgame());
+    this.props.resetState();
   }
   render(){
     return (
