@@ -1,7 +1,7 @@
 import React from 'react';
 import MoreInfo from './MoreInfo.jsx';
 import {CONCLUSSION_TEXTS} from '../constants/constants';
-import {UI} from '../config/config';
+import {UI, TIPS} from '../config/config';
 
 
 export default class Feedback extends React.Component {
@@ -65,14 +65,18 @@ export default class Feedback extends React.Component {
     </div>
     );
 
-    let main_text = <div className="main_text">{UI.initial_text}</div>;
-  
+    let main_text;
+    if(this.props.show_tip===false){
+      main_text = <div className="main_text">{UI.initial_text}</div>
+    } else {
+      main_text = <div className="main_text">{TIPS[Math.floor(Math.random()*TIPS.length)]}</div>;
+    }
     return (
       <div>
-          <div className={"password_feedback " + level} style={{opacity: this.props.password !=="" ? 1 : 0}}>{text}</div>
-          <div className={this.props.password !=="" ? "main_box with_feedback" : "main_box"}>
-              {(this.props.password !=="") ? pass_info : main_text}
-          </div>    
+          <div className={"password_feedback " + level} style={{opacity: (!this.props.show_tip && this.props.password !=="") ? 1 : 0}}>{text}</div>
+          <div className={(!this.props.show_tip && this.props.password !=="") ? "main_box with_feedback" : "main_box"}>
+              {(this.props.show_tip || this.props.password ==="") ? main_text : pass_info }
+          </div>
       </div>
     );
   }

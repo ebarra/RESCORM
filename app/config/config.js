@@ -64,3 +64,9 @@ export const UI = {
   progress_text: "contraseñas creadas",
   task_list: "contraseñas por crear"
 };
+
+export const TIPS = [
+  "Consejo: Para escribir una contraseña fuerte utiliza mayúsculas y minúsculas, así como otros caracteres",
+  "Consejo: Para que una contraseña sea fácil de recordar y a la vez robusta puedes poner las primeras letras de una frase que te guste o de un verso de un poema o canción y rematarla con algún número",
+  "Consejo: Una buena idea es utilizar características del sitio en el que estás haciendo login para crear tu contraseña. Por ejemplo para Gmail podrías poner como últimas letras de tu contraseña GMA o Gma o GmA. Asi tu contraseña cambiará en cada sitio que utilices y será más dificil de hackear."
+];

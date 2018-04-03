@@ -26,7 +26,7 @@ import Dark from './Dark.jsx';
 import {UI} from '../config/config';
 
 
-const INITIAL_STATE = { value: '', hide_pass: true, showModalFeedback:false, showModalStart: false, showModalInfo: false, showModalEnd: false, showModalProgress: false, showModalReset: false, showModalCredits:false,  showModalStop: false };
+const INITIAL_STATE = { value: '', show_tip: false, hide_pass: false, showModalFeedback:false, showModalStart: false, showModalInfo: false, showModalEnd: false, showModalProgress: false, showModalReset: false, showModalCredits:false,  showModalStop: false };
 
 export class App extends React.Component {
   constructor(props){
@@ -48,16 +48,21 @@ export class App extends React.Component {
   }
   handleInputChange(event) {
     this.setState({value: event.target.value});
-    if(this.props.password.game_started===false){
+    if(this.props.password.game_started===false || this.props.password.game_ended===true){
       this.props.dispatch(newPassWithScorm(event.target.value));
+    }
+    if(this.props.password.game_started===true && this.props.password.game_ended===false){
+      if(event.target.value===""){
+        this.setState({show_tip: true});
+      }
     }
   }
   handleSubmit(event) {
     event.preventDefault();
-    console.log("entra")
     if(this.props.password.game_started){
       this.props.dispatch(newPassWithScorm(this.state.value, this.props.user_profile.name));
-      this.setState({ value: "" });
+      this.setState({show_tip: false});
+      //this.setState({ value: "" });
     }
   }
   handleEyeChange(event) {
@@ -69,6 +74,9 @@ export class App extends React.Component {
     }
     if(nextProps.password.objectives_accomplished.length === OBJECTIVES.length ){
       this.setState({showModalEnd:true});
+    }
+    if(nextProps.password.game_ended===true){
+      this.setState({show_tip: false});
     }
   }
   componentDidMount(){
@@ -161,8 +169,8 @@ export class App extends React.Component {
         <ModalStop game_ended={this.props.password.game_ended} resetState={this.resetState} dispatch={this.props.dispatch} objectives_accomplished={this.props.password.objectives_accomplished} show={this.state.showModalStop} handleClose={this.handleCloseModal} />
         <ModalFeedback activity_feedback={this.props.password.activity_feedback} activity_video={this.props.password.activity_video} show={this.state.showModalFeedback} handleClose={this.handleCloseModal}/>
         <ModalEnd number_of_tries={this.props.password.number_of_tries} tracking={this.props.tracking} show={this.state.showModalEnd} handleClose={this.handleCloseModal}/>
-        <MyEntry handleSubmit={this.handleSubmit} password={this.props.password.password} contains={this.props.password.contains} conclussion={this.props.password.conclussion} handleInputChange={this.handleInputChange} handleEyeChange={this.handleEyeChange} value={this.state.value} hide_pass={this.state.hide_pass} dispatch={this.props.dispatch} user_profile={this.props.user_profile} config={GLOBAL_CONFIG} game_started={this.props.password.game_started}/>
-        <Feedback hide_pass={this.state.hide_pass} password={this.props.password.password} sequence={this.props.password.sequence} conclussion={this.props.password.conclussion} recommendations={this.props.password.recommendations} crack_times_display={this.props.password.crack_times_display}/>
+        <MyEntry show_tip={this.state.show_tip} handleSubmit={this.handleSubmit} password={this.props.password.password} contains={this.props.password.contains} conclussion={this.props.password.conclussion} handleInputChange={this.handleInputChange} handleEyeChange={this.handleEyeChange} value={this.state.value} hide_pass={this.state.hide_pass} dispatch={this.props.dispatch} user_profile={this.props.user_profile} config={GLOBAL_CONFIG} game_started={this.props.password.game_started}/>
+        <Feedback show_tip={this.state.show_tip} hide_pass={this.state.hide_pass} password={this.props.password.password} sequence={this.props.password.sequence} conclussion={this.props.password.conclussion} recommendations={this.props.password.recommendations} crack_times_display={this.props.password.crack_times_display}/>
         <ModalCredits show={this.state.showModalCredits} handleClose={this.handleCloseModal} />
         <Dark show={showDarkLayer} onClick={() => this.handleCloseModal("all")}/>
       </div>

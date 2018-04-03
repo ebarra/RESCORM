@@ -6,7 +6,6 @@ export default class MyEntry extends React.Component {
     this.passInput.focus();
   }
   componentDidUpdate(){
-    console.log("reset focus on input field");
     this.passInput.focus();
   }
   render() {
@@ -30,36 +29,36 @@ export default class MyEntry extends React.Component {
             </div>
               <div className="bar_box">
                 <ul className="bars">
-                  <li className={"bar bar01 " + (this.props.conclussion>=0 ? "fill":"")}></li>
-                  <li className={"bar bar02 " + (this.props.conclussion>=0 ? "fill":"")}></li>
-                  <li className={"bar bar03 " + (this.props.conclussion>=0 ? "fill":"")}></li>
-                  <li className={"bar bar04 " + (this.props.conclussion>=0 ? "fill":"")}></li>
-                  <li className={"bar bar05 " + (this.props.conclussion>0 ? "fill":"")}></li>
-                  <li className={"bar bar06 " + (this.props.conclussion>0 ? "fill":"")}></li>
-                  <li className={"bar bar07 " + (this.props.conclussion>0 ? "fill":"")}></li>
-                  <li className={"bar bar08 " + (this.props.conclussion>0 ? "fill":"")}></li>
-                  <li className={"bar bar09 " + (this.props.conclussion>1 ? "fill":"")}></li>
-                  <li className={"bar bar10 " + (this.props.conclussion>1 ? "fill":"")}></li>
-                  <li className={"bar bar11 " + (this.props.conclussion>1 ? "fill":"")}></li>
-                  <li className={"bar bar12 " + (this.props.conclussion>1 ? "fill":"")}></li>
-                  <li className={"bar bar13 " + (this.props.conclussion>2 ? "fill":"")}></li>
-                  <li className={"bar bar14 " + (this.props.conclussion>2 ? "fill":"")}></li>
-                  <li className={"bar bar15 " + (this.props.conclussion>2 ? "fill":"")}></li>
-                  <li className={"bar bar16 " + (this.props.conclussion>2 ? "fill":"")}></li>
-                  <li className={"bar bar17 " + (this.props.conclussion>3 ? "fill":"")}></li>
-                  <li className={"bar bar18 " + (this.props.conclussion>3 ? "fill":"")}></li>
-                  <li className={"bar bar19 " + (this.props.conclussion>3 ? "fill":"")}></li>
-                  <li className={"bar bar20 " + (this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar01 " + (!this.props.show_tip && this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar02 " + (!this.props.show_tip && this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar03 " + (!this.props.show_tip && this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar04 " + (!this.props.show_tip && this.props.conclussion>=0 ? "fill":"")}></li>
+                  <li className={"bar bar05 " + (!this.props.show_tip && this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar06 " + (!this.props.show_tip && this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar07 " + (!this.props.show_tip && this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar08 " + (!this.props.show_tip && this.props.conclussion>0 ? "fill":"")}></li>
+                  <li className={"bar bar09 " + (!this.props.show_tip && this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar10 " + (!this.props.show_tip && this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar11 " + (!this.props.show_tip && this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar12 " + (!this.props.show_tip && this.props.conclussion>1 ? "fill":"")}></li>
+                  <li className={"bar bar13 " + (!this.props.show_tip && this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar14 " + (!this.props.show_tip && this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar15 " + (!this.props.show_tip && this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar16 " + (!this.props.show_tip && this.props.conclussion>2 ? "fill":"")}></li>
+                  <li className={"bar bar17 " + (!this.props.show_tip && this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar18 " + (!this.props.show_tip && this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar19 " + (!this.props.show_tip && this.props.conclussion>3 ? "fill":"")}></li>
+                  <li className={"bar bar20 " + (!this.props.show_tip && this.props.conclussion>3 ? "fill":"")}></li>
                 </ul>
               </div>
 
               <div className="character_box">
-                <span className={this.props.password ? "type type_char bright":"type type_char"}>{this.props.password && this.props.password.length} caracteres</span>
-                <span className={this.props.contains.lowercase? "type type_low bright":"type type_low"}> minúsculas</span>
-                <span className={this.props.contains.uppercase? "type type_upp bright":"type type_upp"}> mayúsculas</span>
-                <span className={this.props.contains.numbers? "type type_num bright":"type type_num"}> números</span>
-                <span className={this.props.contains.special? "type type_sym bright":"type type_sym"}> símbolos</span>
-                <span className={this.props.contains.spaces? "type type_spc bright":"type type_spc"}> espacios</span>
+                <span className={!this.props.show_tip && this.props.password ? "type type_char bright":"type type_char"}>{!this.props.show_tip && this.props.password && this.props.password.length} caracteres</span>
+                <span className={!this.props.show_tip && this.props.contains.lowercase ? "type type_low bright":"type type_low"}> minúsculas</span>
+                <span className={!this.props.show_tip && this.props.contains.uppercase ? "type type_upp bright":"type type_upp"}> mayúsculas</span>
+                <span className={!this.props.show_tip && this.props.contains.numbers ? "type type_num bright":"type type_num"}> números</span>
+                <span className={!this.props.show_tip && !this.props.show_tip && this.props.contains.special ? "type type_sym bright":"type type_sym"}> símbolos</span>
+                <span className={!this.props.show_tip && this.props.contains.spaces ? "type type_spc bright":"type type_spc"}> espacios</span>
               </div>
       </form>
     );
