@@ -142,7 +142,7 @@ export class App extends React.Component {
     }
   }
   render(){
-    let showDarkLayer = this.state.showModalStart || this.state.showModalInfo || this.state.showModalProgress || this.state.showModalReset || this.state.showModalStop || this.state.showModalEnd || this.state.showModalCredits;
+    let showDarkLayer = this.state.showModalStart || this.state.showModalInfo || this.state.showModalProgress || this.state.showModalReset || this.state.showModalStop || this.state.showModalEnd || this.state.showModalCredits || this.state.showModalFeedback;
     return (
       <div id="container">
         <div className="main_header">

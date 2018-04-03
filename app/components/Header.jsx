@@ -44,8 +44,8 @@ export default class Header extends React.Component {
                     <span className="start_game_text">prueba terminada</span>
                       {fullscreenEnabled &&
                         (!this.props.isFullScreen ?
-                          <Icon className="control control_fullscreen" onClick={() => this.props.requestFullScreen()} icon="full_screen_fill"/>:
-                          <Icon className="control control_nofullscreen" onClick={() => this.props.exitFullscreen()} icon="no_full_screen_fill"/>)
+                          <Icon className="control control_fullscreen" onClick={() => this.props.requestFullScreen()} icon="full_screen"/>:
+                          <Icon className="control control_nofullscreen" onClick={() => this.props.exitFullscreen()} icon="no_full_screen"/>)
                           }
                   </div>
                 <div className="credits" onClick={() => this.props.showModal("Credits")}>créditos</div>

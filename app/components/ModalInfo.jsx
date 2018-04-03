@@ -6,7 +6,6 @@ import {UI} from '../config/config';
 export default class ModalInfo extends React.Component {
   constructor(props){
     super(props);
-
   }
   render(){
     return (

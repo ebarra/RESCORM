@@ -28,7 +28,6 @@ export default class MyEntry extends React.Component {
                 <Icon className="control control_check" viewBox="0 0 45.5 41.7" onClick={this.props.handleSubmit} icon="check"/>
               </div>
             </div>
-
               <div className="bar_box">
                 <ul className="bars">
                   <li className={"bar bar01 " + (this.props.conclussion>=0 ? "fill":"")}></li>
@@ -55,12 +54,12 @@ export default class MyEntry extends React.Component {
               </div>
 
               <div className="character_box">
-                <span className={this.props.password ? "bright":"dark"}>{this.props.password && this.props.password.length} caracteres</span>
-                <span className={this.props.contains.lowercase? "bright":"dark"}> minúsculas</span>
-                <span className={this.props.contains.uppercase? "bright":"dark"}> mayúsculas</span>
-                <span className={this.props.contains.numbers? "bright":"dark"}> números</span>
-                <span className={this.props.contains.special? "bright":"dark"}> símbolos</span>
-                <span className={this.props.contains.spaces? "bright":"dark"}> espacios</span>
+                <span className={this.props.password ? "type type_char bright":"type type_char"}>{this.props.password && this.props.password.length} caracteres</span>
+                <span className={this.props.contains.lowercase? "type type_low bright":"type type_low"}> minúsculas</span>
+                <span className={this.props.contains.uppercase? "type type_upp bright":"type type_upp"}> mayúsculas</span>
+                <span className={this.props.contains.numbers? "type type_num bright":"type type_num"}> números</span>
+                <span className={this.props.contains.special? "type type_sym bright":"type type_sym"}> símbolos</span>
+                <span className={this.props.contains.spaces? "type type_spc bright":"type type_spc"}> espacios</span>
               </div>
       </form>
     );
