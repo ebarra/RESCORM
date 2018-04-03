@@ -58,7 +58,11 @@ function checkPasswd(state, action){
   }
 
   receivedState.sequence = result.sequence;
-  receivedState.conclussion = result.score;
+  if(action.password!==""){
+    receivedState.conclussion = result.score;
+  } else {
+    receivedState.conclussion = -1;
+  }
 
   //check password content
   var lowercase = /[a-z]/;
