@@ -24,10 +24,7 @@ export default class ModalReset extends React.Component {
             <div className="modal-content">
               <div className="modal-title">reiniciar la prueba</div>
                 <div className="modal-text">
-                  {this.props.game_ended ?
-                  <span>¿Quieres volver a intentar la prueba?</span>:
-                  <span>¿Estás seguro de que quieres reiniciar la prueba? Esta acción eliminará todo tu progreso.</span>
-                  }
+                  <p>¿estás seguro de que quieres reiniciar la prueba? esta acción eliminará todo tu progreso.</p>
                 </div>
               <div className="modal-actions">
                 <div className="btn btn-red" onClick={() => this.props.handleClose("Reset")}>cancelar</div>

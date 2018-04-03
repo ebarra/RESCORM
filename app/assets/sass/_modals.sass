@@ -56,7 +56,7 @@
         justify-content: flex-end
       .control
         fill: black
-        font-size: .8em
+        font-size: 1em
         &.control_cross
           font-size: .6em
           @include hand_cursor
@@ -96,14 +96,14 @@
               @include flex
               justify-content: space-between
               .individual_task_text
-                @include hand_cursor
-                &:hover
-                  color: $secondarycolor
+                //@include hand_cursor
+                //&:hover
+                  //color: $secondarycolor
               .task-icons
                 .control
                   @include cursor
                   &.control_feedback
-                    font-size: .6em
+                    font-size: .7em !important
                     fill: $gray
                     &:first-child
                       margin-right: .5em

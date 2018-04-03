@@ -59,14 +59,12 @@ export const UI = {
   message_good: "lo has hecho bastante bien, pero has fallado algunas. revisa el siguiente video para aprender a crear contraseñas fiables:",
   message_ok: "no has acertado muchas. es muy importante crear contraseñas seguras para proteger tu intimidad. te dejamos un video para que aprendas un poco más:",
   modal_inst: "para comprobar la contraseña pulsa intro o haz click en el botón de check. tienes todos los intentos que necesites. los controles son muy sencillos:",
-  with_reset_button: false,
-  with_fullscreen: true,
   progress_text: "contraseñas creadas",
   task_list: "contraseñas por crear"
 };
 
 export const TIPS = [
-  "Consejo: Para escribir una contraseña fuerte utiliza mayúsculas y minúsculas, así como otros caracteres",
-  "Consejo: Para que una contraseña sea fácil de recordar y a la vez robusta puedes poner las primeras letras de una frase que te guste o de un verso de un poema o canción y rematarla con algún número",
-  "Consejo: Una buena idea es utilizar características del sitio en el que estás haciendo login para crear tu contraseña. Por ejemplo para Gmail podrías poner como últimas letras de tu contraseña GMA o Gma o GmA. Asi tu contraseña cambiará en cada sitio que utilices y será más dificil de hackear."
+  "consejo: para escribir una contraseña fuerte utiliza mayúsculas y minúsculas, así como otros caracteres",
+  "consejo: para que una contraseña sea fácil de recordar y a la vez robusta puedes poner las primeras letras de una frase que te guste o de un verso de un poema o canción y rematarla con algún número",
+  "consejo: una buena idea es utilizar características del sitio en el que estás haciendo login para crear tu contraseña. Por ejemplo para Gmail podrías poner como últimas letras de tu contraseña GMA o Gma o GmA. Asi tu contraseña cambiará en cada sitio que utilices y será más dificil de hackear."
 ];

@@ -23,15 +23,19 @@ export default class ModalStop extends React.Component {
     }
     render() {
       let modalcontent;
+      let modaltext;
       if(this.props.game_ended){
-        modalcontent = <span>¿Quieres volver a intentar la prueba?</span>;
+        modaltext = <p>¿quieres volver a intentar la prueba?</p>;
       } else {
-        let arr = [<span key="700">¿Estás seguro de que quieres parar y finalizar la prueba? Todavía tienes algunas preguntas sin contestar:</span>]
-        modalcontent = arr.concat(OBJECTIVES.map((obj, index) => {
+        modaltext = [<p>¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes contraseñas pendientes:</p>]
+        modalcontent = OBJECTIVES.map((obj, index) => {
            return this.props.objectives_accomplished.some(e => e.id === obj.id) ?
-              null : <div key={index}><i className="glyphicon glyphicon-ok"></i>{obj.desc}</div>;
-          }));
+              null : <div className="individual_task" key={index}><span className="individual_task_text">{obj.desc}</span><div className="task-icons"><Icon className={this.props.objectives_accomplished.some(e => e.id === obj.id) ? "control control_feedback control_right right" : "control control_feedback control_right"} icon="tick"/></div></div>;
+          });
       }
+
+              
+
       return (
         <Modal show={this.props.show} >
             <div className={"modal-box " + (this.props.show ? "show":"hide")} role="document">
@@ -39,20 +43,20 @@ export default class ModalStop extends React.Component {
                   <Icon className="control control_cross" onClick={ () => this.props.handleClose("Stop")} icon="cross"/>
               </div>
                 <div className="modal-content">
-              <div className="modal-title">finalizar la prueba</div>
-                <div className="modal-text">
-                  {/*<p>¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes contraseñas sin crear:</p>*/}
-                </div>
-                <div className="task-list">
-                  {modalcontent}
-                </div>
-               <div className="modal-actions">
-                  <div className="btn btn-red" onClick={ () => this.props.handleClose("Stop")}>cancelar</div>
-                  {this.props.game_ended ?
-                    <div className="btn btn-green" onClick={UI.with_reset_button ? this.resetGame:this.finishGame}>aceptar</div> :
-                    <div className="btn btn-green" onClick={this.finishGame}>aceptar</div>
-                  }
-                </div>
+                  <div className="modal-title">finalizar la prueba</div>
+                  <div className="modal-text">
+                      {modaltext}
+                    <div className="task-list">
+                      {modalcontent}
+                    </div>
+                  </div>
+                  <div className="modal-actions">
+                    <div className="btn btn-red" onClick={ () => this.props.handleClose("Stop")}>cancelar</div>
+                    {this.props.game_ended ?
+                      <div className="btn btn-green" onClick={UI.with_reset_button ? this.resetGame:this.finishGame}>aceptar</div> :
+                      <div className="btn btn-green" onClick={this.finishGame}>aceptar</div>
+                    }
+                  </div>
                </div>
              </div>
        </Modal>
