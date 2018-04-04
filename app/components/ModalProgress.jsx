@@ -9,6 +9,9 @@ export default class ModalProgress extends React.Component {
     super(props);
   }
   render(){
+
+    let progress = this.props.objectives_accomplished.length;
+
     return (
       <Modal show={this.props.show} >
        <div className={"modal-box " + (this.props.show ? "show":"hide")} role="document">
@@ -20,16 +23,16 @@ export default class ModalProgress extends React.Component {
               <div className="modal-title">progreso de la prueba</div>
            
               <div className="modal-text">
-                <p>{UI.progress_text}</p>
+                <p>{UI.progress_text} {progress}/{OBJECTIVES.length}</p>
                 <div className="task-list">
                  {OBJECTIVES.map((obj, index) => {
-                     let icon = this.props.objectives_accomplished.some(e => e.id === obj.id) ? <i className="glyphicon glyphicon-ok"></i>: <i className="glyphicon glyphicon-remove"></i>;
-                     return <div key={index}>{icon}{obj.desc}</div>;
+                     return <div className="individual_task" key={index}><span className="individual_task_text">{obj.desc}</span><div className="task-icons"><Icon className={this.props.objectives_accomplished.some(e => e.id === obj.id) ? "control control_feedback control_right right" : "control control_feedback control_right"} icon="tick"/></div></div>;
                    })
                  }
                </div>
-               {this.props.game_ended && <div>Has terminado la prueba. Puedes reiniciarla y volver a intentarlo.</div>}
-           </div>
+               {this.props.game_ended && <div>has terminado la prueba. puedes reiniciarla y volver a intentarlo.</div>}
+              </div>
+
               <div className="modal-actions">
                 <div className="btn btn-red" onClick={() => this.props.handleClose("Progress")}>cerrar</div>
               </div>

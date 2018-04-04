@@ -15,7 +15,7 @@ export default class MyEntry extends React.Component {
 
               <div className="input_case">
                 <div className="input_text">
-                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" placeholder="Introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} ref={(input) => { this.passInput = input; }} />
+                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" placeholder="introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} ref={(input) => { this.passInput = input; }} />
 
                 </div>
                 <div className="eye_box">

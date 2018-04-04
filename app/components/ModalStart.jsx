@@ -32,8 +32,7 @@ export default class ModalStart extends React.Component {
                           </div>
                           <ul className={this.state.show_items ? "":"hide"}>
                             {OBJECTIVES.map((obj, index) =>{
-                                let icon = <i className="glyphicon glyphicon-ok"></i>;
-                                return <div key={index}>{icon}{obj.desc}</div>;
+                                return <div key={index}>- {obj.desc}</div>;
                               })
                             }
                           </ul>

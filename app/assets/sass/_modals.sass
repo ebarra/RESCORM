@@ -1,3 +1,4 @@
+
 .dark-opacity
   position: fixed
   width: 100vw
@@ -56,7 +57,7 @@
         justify-content: flex-end
       .control
         fill: black
-        font-size: .8em
+        font-size: 1em
         &.control_cross
           font-size: .6em
           @include hand_cursor
@@ -96,14 +97,14 @@
               @include flex
               justify-content: space-between
               .individual_task_text
-                @include hand_cursor
-                &:hover
-                  color: $secondarycolor
+                //@include hand_cursor
+                //&:hover
+                  //color: $secondarycolor
               .task-icons
                 .control
                   @include cursor
                   &.control_feedback
-                    font-size: .6em
+                    font-size: .7em !important
                     fill: $gray
                     &:first-child
                       margin-right: .5em
@@ -173,14 +174,14 @@
               @include hover_opacity
 
 
-@media (max-width: 1366px) and (orientation: landscape)
+@media (max-width: $media1) and (orientation: landscape)
 
   .modal_position
     width: 70%
       
 
 
-@media (max-width: 1280px)
+@media (max-width: $media2)
 
   .modal_position
     .modal
@@ -191,7 +192,7 @@
               font-size: 1.7em
 
 
-@media (max-width: 1024px)
+@media (max-width: $media4)
 
   .modal_position
     width: 80%
@@ -207,7 +208,7 @@
               font-size: 1.7em
 
 
-@media (max-width: 1024px) and (orientation: landscape)
+@media (max-width: $media4) and (orientation: landscape)
 
   .modal_position
     width: 70%
@@ -221,7 +222,7 @@
               font-size: 1.7em
 
 
-@media (max-width: 823px) and (orientation: landscape)
+@media (max-width: $media6) and (orientation: landscape)
 
   .modal_position
     width: 65vw
@@ -235,7 +236,7 @@
               font-size: 2em
 
 
-@media (max-width: 768px)
+@media (max-width: $media8)
 
   .modal_position
     .modal
@@ -247,7 +248,7 @@
               font-size: 1.5em
 
 
-@media (max-width: 736px) and (orientation: landscape)
+@media (max-width: $media9) and (orientation: landscape)
 
   .modal_position
     width: 70vw
@@ -256,7 +257,7 @@
       max-height: 70vh
 
 
-@media (max-width: 600px)
+@media (max-width: $media11)
 
   .modal_position
     .modal
@@ -268,7 +269,7 @@
               font-size: 1.5em
 
 
-@media (max-width: 480px)
+@media (max-width: $media12)
 
   .modal_position
     width: 85vw
@@ -278,7 +279,7 @@
 
 
 
-@media (max-width: 320px)
+@media (max-width: $media15)
 
   .modal_position
     .modal
