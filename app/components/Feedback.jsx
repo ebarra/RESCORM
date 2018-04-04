@@ -69,7 +69,7 @@ export default class Feedback extends React.Component {
     if(this.props.show_tip===false){
       main_text = <div className="main_text">{UI.initial_text}</div>
     } else {
-      main_text = <div className="main_text">{TIPS[Math.floor(Math.random()*TIPS.length)]}</div>;
+      main_text = <div className="main_text tip">{TIPS[Math.floor(Math.random()*TIPS.length)]}</div>;
     }
     return (
       <div>
