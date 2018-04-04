@@ -64,7 +64,7 @@ function checkPasswd(state, action){
     receivedState.conclussion = -1;
   }
 
-  //check password content
+  //check password cont
   var lowercase = /[a-z]/;
   var nums = /[0-9]/;
   let uppercase = /[A-Z]/;
