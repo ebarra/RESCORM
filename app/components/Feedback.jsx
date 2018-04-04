@@ -7,8 +7,17 @@ import {UI, TIPS} from '../config/config';
 export default class Feedback extends React.Component {
   constructor(props){
     super(props);
+    this.state = {show_tip: false, tip_to_show: ""}
    }
-
+   componentWillReceiveProps(nextProps){
+     if(nextProps.show_tip===true && this.props.show_tip===false){
+       //recently changed to true -> generate random tip and save it
+       this.setState({show_tip: true, tip_to_show: TIPS[Math.floor(Math.random()*TIPS.length)]});
+     }
+     if(nextProps.show_tip===false && this.props.show_tip===true){
+       this.setState({show_tip:false})
+     }
+   }
    render(){
      let text, level;
      if(this.props.conclussion===4){
@@ -66,10 +75,10 @@ export default class Feedback extends React.Component {
     );
 
     let main_text;
-    if(this.props.show_tip===false){
+    if(this.state.show_tip===false){
       main_text = <div className="main_text">{UI.initial_text}</div>
     } else {
-      main_text = <div className="main_text tip">{TIPS[Math.floor(Math.random()*TIPS.length)]}</div>;
+      main_text = <div className="main_text tip">{this.state.tip_to_show}</div>;
     }
     return (
       <div>

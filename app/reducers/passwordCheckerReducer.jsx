@@ -68,7 +68,7 @@ function checkPasswd(state, action){
   var lowercase = /[a-z]/;
   var nums = /[0-9]/;
   let uppercase = /[A-Z]/;
-  let special = /[$&+,:;=?@#|'<>.^*()%!-]/;
+  let special = /[$&+,:;=?@#|'<>.^*()%!-_]/;
   let spaces = / /;
   receivedState.contains.lowercase = receivedState.password.match(lowercase);
   receivedState.contains.numbers = receivedState.password.match(nums);
