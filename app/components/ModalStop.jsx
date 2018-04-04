@@ -29,8 +29,7 @@ export default class ModalStop extends React.Component {
       } else {
         modaltext = [<p>¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes contraseñas pendientes:</p>]
         modalcontent = OBJECTIVES.map((obj, index) => {
-           return this.props.objectives_accomplished.some(e => e.id === obj.id) ?
-              null : <div className="individual_task" key={index}><span className="individual_task_text">{obj.desc}</span><div className="task-icons"><Icon className={this.props.objectives_accomplished.some(e => e.id === obj.id) ? "control control_feedback control_right right" : "control control_feedback control_right"} icon="tick"/></div></div>;
+           return <div className="individual_task" key={index}><span className="individual_task_text">{obj.desc}</span><div className="task-icons"><Icon className={this.props.objectives_accomplished.some(e => e.id === obj.id) ? "control control_feedback control_right right" : "control control_feedback control_right"} icon="tick"/></div></div>;
           });
       }
 
