@@ -47,7 +47,7 @@ export default class Feedback extends React.Component {
           <div className="body_broken_pass">
             <p className="body_broken_pass_title">la contraseña se tardaría en romper:</p>
             <ul>
-              <li className="body_broken_pass01"># en un ataque offline {/*(cuanto se tarda en adivinar la que has escrito, si se roba la base de datos de contraseñas)*/}: <span className="">{this.props.crack_times_display.offline_slow_hashing_1e4_per_second}</span></li>
+              <li className="body_broken_pass01"># en un <span className="underline_text">ataque offline</span>: <span className="">{this.props.crack_times_display.offline_slow_hashing_1e4_per_second}</span><div className="underline_text_explanation"><span className="triangle"></span><p>se roba la base de datos de contraseñas y se cotejan para adivinar la que has escrito</p></div></li>
               <li className="body_broken_pass02"># en un ataque online a 10 contraseñas por segundo: <span className="">{this.props.crack_times_display.online_no_throttling_10_per_second}</span></li>
               <li className="body_broken_pass03"># en un ataque online a 100 contraseñas por hora: <span className="">{this.props.crack_times_display.online_throttling_100_per_hour}</span></li>
             </ul>

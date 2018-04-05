@@ -21,7 +21,7 @@
   @include transitionn (height 300ms ease, transform 272ms ease)
   //@include transition_default
   &.with_feedback
-    height: calc(100vh - 29em)
+    height: calc(calc(100vh - 29em))
     @include transform (translateY(0))
     @include transitionn (height 300ms ease, transform 272ms ease)
     //@include transition_default
@@ -53,8 +53,29 @@
           margin: 0 0 .3em 0
           li
             font-weight: 700
+            position: relative
             span
               color: $maincolor
+              &.underline_text
+                color: black
+                text-decoration: underline
+            .underline_text_explanation
+              position: absolute
+              top: 2em
+              left: 3em
+              width: 12em
+              padding: 1em
+              color: white
+              background-color: $darkgray
+              font-weight: 300
+              z-index: 2
+              .triangle
+                position: absolute
+                top: -.5em
+                left: 3em
+                @include transform (rotate(45deg))
+                border-top: 1em solid $darkgray
+                border-left: 1em solid $darkgray
       .body_more_info
         .body_more_info_title
           @include title
@@ -78,7 +99,7 @@
   .main_box
     .main_text
       font-size: calc(5vh + 2.3em)
-      padding: 1em 3em 1em 1em
+      //padding: 1em 3em 1em 1em
 
 
 @media (max-width: $media2)
@@ -118,7 +139,9 @@
 @media (max-width: $media9)
 
   .main_box
-    height: calc(100vh - 9em)
+    height: calc(100vh - 20.5em)
+    &.with_feedback
+      height: calc(100vh - 23em)
 
 
 @media (max-width: $media9) and (orientation: landscape)
