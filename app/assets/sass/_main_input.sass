@@ -16,7 +16,7 @@
         .main_input
           width: 100%
           background-color: transparent
-          font-size: 1.5em
+          font-size: calc(.75vh + .75vw + .3em)
           padding: .9em 1.3em
           display: inline
           border: 0
@@ -25,7 +25,7 @@
       .eye_box
         margin-right: 1em
         margin-top: .3em
-        font-size: 2em
+        font-size: calc(1vh + 1vw + .6em)
         .control
           &.open
             fill: rgb(0,0,0)
@@ -35,7 +35,7 @@
       justify-content: center
       width: 3.5em
       height: 100%
-      font-size: 1.5em
+      font-size: calc(1vh + 1vw + .45em)
       margin-left: .3em
       background-color: $maincolor
     .control
@@ -67,6 +67,7 @@
 
   .character_box
     font-weight: 600
+    font-size: calc(.5vw + .5vh + .2em)
     padding: 1em
     & > span
       margin-right: 2em
@@ -75,7 +76,58 @@
       &.bright
         opacity: 1
 
-//.alert
-  //width: 40%
-  //margin: auto
-  //margin-bottom: 30px
+
+@media (max-width: $media6) 
+
+  .form_pass
+    .input_box
+      height: 3em
+    .bar_box
+      height: .4em
+      .bars
+        .bar
+          width: 4%
+
+
+@media (max-width: $media9) 
+
+  .form_pass
+    .input_box
+      height: 3em
+    .bar_box
+      height: .4em
+      .bars
+        .bar
+          width: 4%
+    .character_box
+      & > span
+        margin-right: 1.5em
+
+
+@media (max-width: $media10) and (orientation: landscape)
+  
+  .form_pass
+    .character_box
+      & > span
+        font-size: calc(.7vw + .7vh + .4em)
+
+
+@media (max-width: $media12) 
+
+  .form_pass
+    .input_box
+      height: 3em
+    .bar_box
+      height: .4em
+      .bars
+        .bar
+          width: 4%
+
+@media (max-width: $media13) 
+
+  .form_pass
+    .character_box
+      & > span
+        font-size: calc(.4vw + .4vh + .4em)
+         
+

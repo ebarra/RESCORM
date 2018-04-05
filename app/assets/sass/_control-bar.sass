@@ -7,7 +7,7 @@
   justify-content: space-between
   font-weight: bold
   color: $maincolor
-  font-size: 1.5em
+  font-size: calc(.75vh + .75vw + .3em)
   background-color: rgba(255,255,255,.15)
   padding: 0 1.2em
   height: 5em
@@ -42,7 +42,6 @@
       padding-top: .3em
       @include flex
       justify-content: flex-start
-      width: 17%
       height: 1.5em
       .control
         fill: $secondarycolor
@@ -59,7 +58,7 @@
         margin-right: .2em
 
   .progress_score
-    width: 40%
+    width: 100%
     color: white
     @include flex
     justify-content: flex-end
@@ -75,7 +74,7 @@
       
     .questions_answered
       margin-left: .7em
-      width: 25%
+      width: 30%
       .number_answered
       .progress_bar
         margin: 0 auto
@@ -123,18 +122,11 @@
     &.control_stop
 
 
-@media (max-width: $media1) and (orientation: landscape)
+@media (max-width: $media1)
 
   .control_bar
-    .app_controls
-      margin-left: 6.5em
-
-
-@media (max-width: $media3)
-  
-  .control_bar
-    .app_controls
-      margin-left: 2.5em
+    .controls_menu
+      font-size: 1.3em
 
 
 @media (max-width: $media5) 
@@ -152,16 +144,30 @@
   //----------- CONTROL BAR ------------
   
   .control_bar
+    padding: 0
+    margin-top: 0
+
+
+@media (max-width: $media7) and (orientation: landscape) 
+  
+  //----------- CONTROL BAR ------------
+  
+  .control_bar
     height: 3em
     font-size: 1em
-    padding: 1em
-    margin-top: .8em
     .progress_score
       .questions_answered
         .progress_bar
           border: .09em solid white
-    .app_controls
-      margin-left: 6em
+
+
+@media (max-width: $media7)
+  
+  .control_box
+    .control_bar
+      width: 150%
+      .controls_menu
+        font-size: 1.5em
 
 
 @media (max-width: $media8) 
@@ -169,33 +175,6 @@
   //----------- CONTROL BAR ------------
   
   .control_bar
-    .controls_menu
-      display: none
-    .controls_menu_mob
-      @include hand_cursor
-      @include column-flex
-      justify-content: center
-      position: relative
-      margin-right: 1.5em
-      .control
-        fill: $secondarycolor
-      .control_main
-        height: 1.5em
-        width: 1.5em
-      .controls_int
-        position: absolute
-        top: -8.7em
-        left: 0em
-        @include column-flex
-        justify-content: center
-        &.hide
-          display: none
-        .control
-          margin-right: .2em
-          margin-top: .2em
-
-    .app_controls
-      margin-left: 1em
     .progress_score
       width: 10%
       margin-left: 2.5em
@@ -211,37 +190,25 @@
     height: 3em
     .progress_score
       width: 6%
-    .app_controls
-      margin-right: 2em
-
 
 
 @media (max-width: $media9) 
 
   //----------- CONTROL BAR ------------
-
-  .control_bar
-    font-size: 1em
-    padding: 1em
-    margin-top: .8em
-    .controls_menu_mob
-      margin: 0
-    
-    .progress_score
-      margin-left: 0
-      .questions_answered
-        display: none
-        .progress_bar
-          border: .09em solid white
-    
-    .app_controls
-      margin-left: 0
-      margin-right: 0.6em
-
-    .feedback_revision
-      .feedback_text
-        font-size: .8em
-        margin-left: .7em
+  .control_box
+    .control_bar
+      font-size: 1em
+      padding: 0
+      margin-top: 0
+      .controls_menu
+        font-size: 1.5em
+      
+      .progress_score
+        margin-left: 0
+        .questions_answered
+          display: none
+          .progress_bar
+            border: .09em solid white
       
 
 
@@ -256,13 +223,30 @@
         svg
           width: 1.3em
           height: 1.3em
-         
-
-  .more_apps
-    cursor: pointer
 
 
-  
+@media (max-width: $media11) 
+
+  .control_box
+    .control_bar
+      width: 180%
+
+
+@media (max-width: $media12) 
+
+  .control_bar
+    margin: 0
+    padding: 0
+    font-size: 1.3em
+    .control_main_text
+      display: none
+    .control_text
+      .start_game
+        font-size: 1.3em
+        padding: 0
+
+  .progress_score
+    font-size: 1.2em
 
 
 

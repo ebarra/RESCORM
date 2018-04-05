@@ -20,7 +20,7 @@ export default class ModalFeedback extends React.Component {
             <div className="modal-title">¿necesitas ayuda?</div>
             <div className="modal-text">
               <p>{this.props.activity_feedback}</p>
-              <p>Te enseñamos a poner contraseñas:</p>
+              <p>te enseñamos a poner contraseñas:</p>
               <div className="responsive_video">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/4Ips1NTpG_o" frameBorder="0" allow="encrypted-media" allowFullScreen />
               </div>
