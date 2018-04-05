@@ -87,7 +87,7 @@ export default class Feedback extends React.Component {
 
           <div className="body_other">
             <p className="body_other_title">otras recomendaciones generales:</p>
-            <p className="body_other_text">no utilices palabras del diccionario como contraseñas, a ser posible que su contraseña no contenga su nombre de usuario...</p>
+            <p className="body_other_text">No utilices palabras del diccionario como contraseñas. Combina mayúsculas y minúsculas y algún símbolo y número. A ser posible que tu contraseña no contenga tu nombre de usuario. No pongas la misma contraseña en todos los sitios web que utilices. En Internet hay muchos blogs y páginas con recomendaciones sobre cómo establecer contraseñas seguras, consúltalos y utiliza tus propios algoritmos.</p>
           </div>
 
         </div>
