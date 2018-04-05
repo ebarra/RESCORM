@@ -41,8 +41,9 @@ export function shuffleArray(array){
 
 
 export function translate(text){
-  if(TRANSLATIONS[text]){
-    return TRANSLATIONS[text];
+  //console.log(TRANSLATIONS[text]);
+  if(TRANSLATIONS[text.toLowerCase()]){
+    return TRANSLATIONS[text.toLowerCase()];
   } else {
     return text;
   }

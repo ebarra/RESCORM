@@ -67,10 +67,11 @@ export default class Feedback extends React.Component {
 
           <div className="body_more_info">
             <p className="body_more_info_title">más información:</p>
-            <p className="body_more_info_text">
+            <div className="body_more_info_text">
               {this.props.sequence.map((seq, index) => {
                   return (<MoreInfo sequence_size={this.props.sequence.length} seq={seq} index={index} hide_pass={this.props.hide_pass} key={index}/>);
-                })}</p>
+                })}
+            </div>
           </div>
 
           <div className="body_recommendations">

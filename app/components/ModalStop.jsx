@@ -27,13 +27,13 @@ export default class ModalStop extends React.Component {
       if(this.props.game_ended){
         modaltext = <p>¿quieres volver a intentar la prueba?</p>;
       } else {
-        modaltext = [<p>¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes contraseñas pendientes:</p>]
+        modaltext = [<p key={0}>¿estás seguro de que quieres parar y finalizar la prueba? todavía tienes contraseñas pendientes:</p>]
         modalcontent = OBJECTIVES.map((obj, index) => {
            return <div className="individual_task" key={index}><span className="individual_task_text">{obj.desc}</span><div className="task-icons"><Icon className={this.props.objectives_accomplished.some(e => e.id === obj.id) ? "control control_feedback control_right right" : "control control_feedback control_right"} icon="tick"/></div></div>;
           });
       }
 
-              
+
 
       return (
         <Modal show={this.props.show} >
