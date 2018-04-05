@@ -23,7 +23,7 @@ export default class MyEntry extends React.Component {
                 </div>
               </div>
 
-              <div className={"check_box " + (this.props.game_started && !this.props.game_ended) ? "":"hide" }>
+              <div className={this.props.game_started ? "check_box" : "check_box hide" }>
                 <Icon className="control control_check" viewBox="0 0 45.5 41.7" onClick={this.props.handleSubmit} icon="check"/>
               </div>
             </div>
