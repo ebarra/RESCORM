@@ -3,6 +3,8 @@ import {OBJECTIVES} from '../config/objectives.js';
 import Modal from './Modal.jsx';
 import Icon from './Icon.jsx';
 import {UI} from '../config/config.js';
+import {endgame} from './../reducers/actions';
+
 
 export default class ModalEnd extends React.Component {
   constructor(props){
@@ -10,7 +12,7 @@ export default class ModalEnd extends React.Component {
     this.finishGame = this.finishGame.bind(this);
   }
   finishGame(){
-    this.props.handleClose("Stop");
+    this.props.handleClose("End");
     this.props.dispatch(endgame());
     this.props.resetState();
   }
