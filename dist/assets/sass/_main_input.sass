@@ -1,0 +1,81 @@
+
+.form_pass
+  .input_box
+    width: 100%
+    height: 4.5em
+    @include flex
+    justify-content: space-around
+    .input_case
+      width: 100%
+      height: 100%
+      @include flex
+      justify-content: space-around
+      background-color: $maincolor
+      .input_text
+        width: 100%
+        .main_input
+          width: 100%
+          background-color: transparent
+          font-size: 1.5em
+          padding: .9em 1.3em
+          display: inline
+          border: 0
+          &::placeholder
+            color: rgba(0,0,0,.5)
+      .eye_box
+        margin-right: 1em
+        margin-top: .3em
+        font-size: 2em
+        .control
+          &.open
+            fill: rgb(0,0,0)
+
+    .check_box
+      @include flex
+      justify-content: center
+      width: 3.5em
+      height: 100%
+      font-size: 1.5em
+      margin-left: .3em
+      background-color: $maincolor
+    .control
+      fill: rgba(0,0,0,.5)
+      @include transition_default
+      &:hover
+        fill: rgb(0,0,0)
+        @include transition_default
+
+  .bar_box
+    width: 100%
+    height: .5em
+    margin-top: .4em
+    .bars
+      width: 100%
+      height: 100%
+      margin: 0
+      @include flex
+      justify-content: space-between
+      .bar
+        height: 100%
+        width: 4.5%
+        background-color: $maincolor
+        opacity: .5
+        @include transition_default
+        &.fill
+          opacity: 1
+          @include transition_default
+
+  .character_box
+    font-weight: 600
+    padding: 1em
+    & > span
+      margin-right: 2em
+    .type
+      opacity: .5
+      &.bright
+        opacity: 1
+
+//.alert
+  //width: 40%
+  //margin: auto
+  //margin-bottom: 30px

@@ -1,0 +1,186 @@
+
+.password_feedback
+  font-size: calc(3vw + .7em)
+  font-weight: 900
+  text-align: center
+  margin-bottom: .4em
+  &.secure
+    color: $green
+  &.medium
+    color: $orange
+  &.weak
+    color: $red
+
+//----------- MAIN BOX ----------------
+
+.main_box
+  height: calc(100vh - 23em)
+  background-color: white
+  overflow: auto
+  @include transform (translateY(-5.7vw))
+  @include transitionn (height 300ms ease, transform 272ms ease)
+  //@include transition_default
+  &.with_feedback
+    height: calc(calc(100vh - 29em))
+    @include transform (translateY(0))
+    @include transitionn (height 300ms ease, transform 272ms ease)
+    //@include transition_default
+
+  .main_text
+    color: $secondarycolor
+    font-size: calc(2.5vh + 2vw + 2em)
+    font-weight: bold
+    padding: 3.5vw 16vw 2vw 4vw
+    margin: 0
+    &.tip
+      font-size: calc(1.5vh + 1vw + 1.5em)
+
+  .pass_info
+    padding: 2.5vw 3.5vw
+    color: black
+    font-size: calc(.6vw + .6vh + .2em)
+    p
+      margin: 0
+    .pass_info_title
+      @include title
+      .pass_password
+        color: $maincolor
+    .pass_info_body
+      .body_broken_pass
+        .body_broken_pass_title
+          @include title
+        ul
+          margin: 0 0 .3em 0
+          li
+            font-weight: 700
+            position: relative
+            span
+              color: $maincolor
+              &.underline_text
+                color: black
+                text-decoration: underline
+            .underline_text_explanation
+              position: absolute
+              top: 2em
+              left: 3em
+              width: 12em
+              padding: 1em
+              color: white
+              background-color: $darkgray
+              font-weight: 300
+              z-index: 2
+              .triangle
+                position: absolute
+                top: -.5em
+                left: 3em
+                @include transform (rotate(45deg))
+                border-top: 1em solid $darkgray
+                border-left: 1em solid $darkgray
+      .body_more_info
+        .body_more_info_title
+          @include title
+        .body_more_info_text
+      .body_recommendations
+        .body_recom_title
+          @include title
+        .body_recom
+      .body_conclusion
+        .body_conclusion_title
+          @include title
+        .body_conclusion_text
+      .body_other
+        .body_other_title
+          @include title
+        .body_other_text
+
+
+@media (max-width: $media1) and (orientation: landscape)
+
+  .main_box
+    .main_text
+      font-size: calc(5vh + 2.3em)
+      //padding: 1em 3em 1em 1em
+
+
+@media (max-width: $media2)
+
+  .main_box
+    .main_text
+      font-size: calc(4vh + 2em)
+      padding: 1em 2em 1em 1em
+
+
+@media (max-width: $media4) and (orientation: landscape)
+
+  .main_box
+    .main_text
+      font-size: calc(4vh + 2em)
+      padding: 1em 2em 1em 1em
+
+
+@media (max-width: $media6) and (orientation: landscape)
+
+  .main_box
+    height: calc(100vh - 8.3em)
+    .main_text
+      font-size: calc(2vh + 2em)
+      padding: .8em 3em .8em 1em
+
+
+
+@media (max-width: $media8)
+
+  .main_box
+    .main_text
+      font-size: calc(3vh + 2em)
+      padding: 1em 2em 1em 1em
+
+
+@media (max-width: $media9)
+
+  .main_box
+    height: calc(100vh - 20.5em)
+    &.with_feedback
+      height: calc(100vh - 23em)
+
+
+@media (max-width: $media9) and (orientation: landscape)
+
+  .main_box
+    height: calc(100vh - 8em)
+    .main_text
+      font-size: calc(2.5vh + 1.7em)
+      padding: .7em 2.5em .7em 1em
+
+
+@media (max-width: $media10) and (orientation: landscape)
+
+  .main_box
+    .main_text
+      font-size: calc(2vh + 1.5em)
+      padding: .8em 3em .8em 1em
+
+
+@media (max-width: $media12)
+
+  .main_box
+    .main_text
+      font-size: calc(3vh + 1.2em)
+      padding: .8em 2.2em .8em 1em
+
+
+@media (max-width: $media13)
+
+  .main_box
+    .main_text
+      font-size: calc(3vh + 1.2em)
+      padding: .8em 1.2em .8em 1em
+
+
+
+@media (max-width: $media14)
+
+  .main_box
+    .main_text
+      font-size: calc(3vh + 1em)
+      padding: .7em 2em .7em 1em
