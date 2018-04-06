@@ -88,6 +88,7 @@ export class App extends React.Component {
     window.addEventListener('webkitfullscreenchange', this.fullscreenChange);
     window.addEventListener('mozfullscreenchange', this.fullscreenChange);
     window.addEventListener('MSFullscreenChange', this.fullscreenChange);
+    this.setState({showModalStart:true});
   }
   componentWillUnmount() {
     window.removeEventListener('fullscreenchange', this.fullscreenChange);
@@ -171,7 +172,7 @@ export class App extends React.Component {
 
         <ModalEnd dispatch={this.props.dispatch} number_of_tries={this.props.password.number_of_tries} objectives_accomplished={this.props.password.objectives_accomplished} tracking={this.props.tracking} show={this.state.showModalEnd} handleClose={this.handleCloseModal}/>
         <MyEntry show_tip={this.state.show_tip} handleSubmit={this.handleSubmit} password={this.props.password.password} contains={this.props.password.contains} conclussion={this.props.password.conclussion} handleInputChange={this.handleInputChange} handleEyeChange={this.handleEyeChange} value={this.state.value} hide_pass={this.state.hide_pass} dispatch={this.props.dispatch} user_profile={this.props.user_profile} config={GLOBAL_CONFIG} game_started={this.props.password.game_started} game_ended={this.props.password.game_ended}/>
-        <Feedback show_tip={this.state.show_tip} hide_pass={this.state.hide_pass} password={this.props.password.password} sequence={this.props.password.sequence} conclussion={this.props.password.conclussion} recommendations={this.props.password.recommendations} crack_times_display={this.props.password.crack_times_display}/>
+        <Feedback show_tip={this.state.show_tip} hide_pass={this.state.hide_pass} password={this.props.password.password} sequence={this.props.password.sequence} conclussion={this.props.password.conclussion} recommendations={this.props.password.recommendations} crack_times_display={this.props.password.crack_times_display} game_ended={this.props.password.game_ended}/>
         <ModalCredits show={this.state.showModalCredits} handleClose={this.handleCloseModal} />
         <Dark show={showDarkLayer} onClick={() => this.handleCloseModal("all")}/>
       </div>

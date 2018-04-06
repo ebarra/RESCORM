@@ -21,7 +21,7 @@
   @include transitionn (height 300ms ease, transform 272ms ease)
   //@include transition_default
   &.with_feedback
-    height: calc(calc(100vh - 29em))
+    height: calc(100vh - 29em)
     @include transform (translateY(0))
     @include transitionn (height 300ms ease, transform 272ms ease)
     //@include transition_default
@@ -59,12 +59,14 @@
               &.underline_text
                 color: black
                 text-decoration: underline
+                @include hand_cursor
             .underline_text_explanation
               position: absolute
-              top: 2em
-              left: 3em
-              width: 12em
-              padding: 1em
+              top: 2.5em
+              left: 5.5em
+              width: 15em
+              padding: 1.5em
+              font-size: calc(.4vw + .4vh + .2em)
               color: white
               background-color: $darkgray
               font-weight: 300
@@ -97,90 +99,183 @@
 @media (max-width: $media1) and (orientation: landscape)
 
   .main_box
+    height: calc(100vh - 22em)
     .main_text
-      font-size: calc(5vh + 2.3em)
-      //padding: 1em 3em 1em 1em
+      font-size: calc(5vh + 2.6em)
+      padding: 4.5vw 10vw 2vw 6vw
+      &.tip
+        font-size: calc(2.5vh + 1.5vw + 1.5em)
+    &.with_feedback
+      height: calc(100vh - 28em)
 
 
 @media (max-width: $media2)
 
   .main_box
     .main_text
-      font-size: calc(4vh + 2em)
-      padding: 1em 2em 1em 1em
+      font-size: calc(5vh + 2.1em)
+      padding: 5.5vw 14vw 2vw 8vw
+    &.with_feedback
+      height: calc(100vh - 26.5em)
+    .pass_info
+      padding: 3vh 4vh
+      font-size: calc(.8vw + .8vh + .3em)
 
 
 @media (max-width: $media4) and (orientation: landscape)
 
   .main_box
+    height: calc(100vh - 20.5em)
     .main_text
       font-size: calc(4vh + 2em)
-      padding: 1em 2em 1em 1em
+      &.tip
+        font-size: calc(2vh + 1vw + 1.5em)
+    &.with_feedback
+      height: calc(100vh - 24em)
 
 
 @media (max-width: $media6) and (orientation: landscape)
 
   .main_box
-    height: calc(100vh - 8.3em)
+    height: calc(100vh - 14.5em)
     .main_text
       font-size: calc(2vh + 2em)
-      padding: .8em 3em .8em 1em
+    &.with_feedback
+      height: calc(100vh - 18em)
+
+@media (max-width: $media6)
+
+  .main_box
+    @include transform (translateY(-7.2vw))
+
+
+@media (max-width: $media7)
+
+  .main_box
+    height: calc(100vh - 21em)
+    .main_text
+      font-size: calc(2.3vh + 3vw + 2em)
+      padding: 5.5vw 7vw 2vw 7vw;
+    &.with_feedback
+      height: calc(100vh - 24.5em)
+
+
+@media (max-width: $media7) and (orientation: landscape)
+
+  .main_box
+    height: calc(100vh - 14em)
+    .main_text
+      font-size: calc(2vh + 2em)
+    &.with_feedback
+      height: calc(100vh - 17.5em)
 
 
 
 @media (max-width: $media8)
 
   .main_box
+    height: calc(100vh - 18em)
     .main_text
-      font-size: calc(3vh + 2em)
-      padding: 1em 2em 1em 1em
+      font-size: calc(3vh + 1.5vw + 2em)
+      &.tip
+        font-size: calc(1vh + 1vw + 1.5em)
+        padding: 5.5vw 5vw 3vw 6vw
+    &.with_feedback
+      height: calc(100vh - 21.5em)
 
 
 @media (max-width: $media9)
 
   .main_box
-    height: calc(100vh - 20.5em)
+    height: calc(100vh - 15em)
     &.with_feedback
-      height: calc(100vh - 23em)
+      height: calc(100vh - 18.5em)
 
 
 @media (max-width: $media9) and (orientation: landscape)
 
   .main_box
-    height: calc(100vh - 8em)
+    height: calc(100vh - 13.5em)
     .main_text
       font-size: calc(2.5vh + 1.7em)
-      padding: .7em 2.5em .7em 1em
+    &.with_feedback
+      height: calc(100vh - 16.7em)
 
 
 @media (max-width: $media10) and (orientation: landscape)
 
   .main_box
+    height: calc(100vh - 13em)
     .main_text
       font-size: calc(2vh + 1.5em)
-      padding: .8em 3em .8em 1em
+      padding: 3.5vw 4vw
+      &.tip
+        padding: 3.5vw 4vw
+        font-size: calc(2vh + 1em)
+    &.with_feedback
+      height: calc(100vh - 15.8em)
+
+
+@media (max-width: $media11)
+
+  .main_box
+    height: calc(100vh - 15em)
+    &.with_feedback
+      height: calc(100vh - 17.5em)
+
+
+@media (max-width: $media11) and (orientation: landscape)
+
+  .main_box
+    height: calc(100vh - 13em)
+    &.with_feedback
+      height: calc(100vh - 15.5em)
 
 
 @media (max-width: $media12)
 
   .main_box
+    @include transform (translateY(-8.1vw))
+    height: calc(100vh - 13em)
     .main_text
-      font-size: calc(3vh + 1.2em)
-      padding: .8em 2.2em .8em 1em
+      font-size: calc(4vh + 1em)
+      &.tip
+        padding: 4vh
+        font-size: calc(2vh + 1em)
+    &.with_feedback
+      height: calc(100vh - 15em)
+  .password_feedback
+    font-size: calc(3vw + .6em)
 
 
 @media (max-width: $media13)
 
   .main_box
+    height: calc(100vh - 13em)
     .main_text
-      font-size: calc(3vh + 1.2em)
-      padding: .8em 1.2em .8em 1em
-
+      //font-size: calc(3vh + 1.5em)
+    &.with_feedback
+      height: calc(100vh - 15em)
 
 
 @media (max-width: $media14)
 
   .main_box
+    height: calc(100vh - 12.8em)
     .main_text
-      font-size: calc(3vh + 1em)
-      padding: .7em 2em .7em 1em
+    &.with_feedback
+      height: calc(100vh - 14.7em)
+
+
+@media (max-width: $media15)
+  
+  .main_box
+    height: calc(100vh - 12em)
+    .main_text
+    &.with_feedback
+      height: calc(100vh - 13.5em)
+
+  .password_feedback
+    font-size: calc(2vw + .6em)
+
+

@@ -39,7 +39,7 @@ export default class ModalEnd extends React.Component {
            <div className="final_score">
            <div className="individual_score"><span className="number_score">{this.props.number_of_tries} </span> <span className="text_score">intentos</span></div>
             <div className="individual_score"><span className="number_score">{progress}/{OBJECTIVES.length}</span> <span className="text_score">aciertos</span></div>
-            <div className="individual_score"><span className="number_score">{(this.props.tracking.score * 100)}</span> <span className="text_score">puntos</span></div>
+            <div className="individual_score"><span className="number_score">{(this.props.tracking.score * 10)}</span> <span className="text_score">puntos</span></div>
           </div>
              <p>eres un crack. ¡A tí no hay quien te engañe! sabemos que no necesitas que te enseñemos cómo crear contraseñas seguras, pero aquí te dejamos un pequeño video por si quieres saber más:</p>
               <div className="responsive_video">

@@ -78,36 +78,30 @@ function checkPasswd(state, action){
 
   //user playing game
   if(receivedState.game_started && !receivedState.game_ended){
-      if(result.score===0 || result.score===1){
-        //Si comprueba dos veces una contraseña de un mismo tipo le sacamos un modal de ayuda
-        if(receivedState.objectives_repeated.some(e => e.id === OBJECTIVES[0].id)){
-          receivedState.activity_feedback = "ya has comprobado una contraseña sencilla. prueba ahora con contraseñas más complejas. si no sabes cómo te ayudamos:";
-        } else if(receivedState.objectives_accomplished.some(e => e.id === OBJECTIVES[0].id)){
-          receivedState.activity_feedback = "";
-          receivedState.objectives_repeated.push(OBJECTIVES[0]);
-        } else {
-          receivedState.activity_feedback = "";
-          receivedState.objectives_accomplished.push(OBJECTIVES[0]);
+      let objectives_left = OBJECTIVES.filter((o)=>{
+        for (let i = 0; i < receivedState.objectives_accomplished.length; i++) {
+          if(receivedState.objectives_accomplished[i].id===o.id){
+            //objective already accomplished
+            return false;
+          }
         }
-      } else if(result.score===2 || result.score===3){
-        if( receivedState.objectives_repeated.some(e => e.id === OBJECTIVES[1].id)){
-          receivedState.activity_feedback = "ya has comprobado una contraseña de fortaleza media. prueba ahora con contraseñas más complejas y más simples. si no sabes cómo te ayudamos:";
-        } else if(receivedState.objectives_accomplished.some(e => e.id === OBJECTIVES[1].id)){
-          receivedState.activity_feedback = "";
-          receivedState.objectives_repeated.push(OBJECTIVES[1]);
-        } else {
-          receivedState.activity_feedback = "";
-          receivedState.objectives_accomplished.push(OBJECTIVES[1]);
+        return true;
+      });
+      let this_try_gets_one_objective = false;
+      for (let i = 0; i < objectives_left.length; i++) {
+        //get only objectives not accomplished
+        if(objectives_left[i].passwordchecker_score.includes(result.score)){
+          //add it to objectives_accomplished
+          this_try_gets_one_objective = true;
+          receivedState.objectives_accomplished.push(objectives_left[i]);
         }
-      } else if(result.score===4){
-        if( receivedState.objectives_repeated.some(e => e.id === OBJECTIVES[2].id)){
-          receivedState.activity_feedback = "ya has comprobado una contraseña robusta. prueba ahora con contraseñas más simples.";
-        } else if(receivedState.objectives_accomplished.some(e => e.id === OBJECTIVES[2].id)){
-          receivedState.activity_feedback = "";
-          receivedState.objectives_repeated.push(OBJECTIVES[2]);
+      }
+      if(!this_try_gets_one_objective){
+        //if user has checked this kind of password before (twice), we show the feedback modal
+        if(receivedState.objectives_repeated.filter((e)=>{return e===result.score}).length>1){
+          receivedState.activity_feedback = "Te enseñamos a poner contraseñas más robustas.";
         } else {
-          receivedState.activity_feedback = "";
-          receivedState.objectives_accomplished.push(OBJECTIVES[2]);
+          receivedState.objectives_repeated.push(result.score);
         }
       }
       receivedState.number_of_tries += 1;

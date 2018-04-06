@@ -97,7 +97,7 @@ export default class Feedback extends React.Component {
 
     let main_text;
     if(this.state.show_tip===false){
-      main_text = <div className="main_text">{UI.initial_text}</div>
+      main_text = <div className="main_text">{this.props.game_ended ? UI.final_text:UI.initial_text}</div>
     } else {
       main_text = <div className="main_text tip">{this.state.tip_to_show}</div>;
     }
