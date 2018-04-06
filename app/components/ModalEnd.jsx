@@ -15,6 +15,13 @@ export default class ModalEnd extends React.Component {
     this.props.dispatch(endgame());
     this.props.resetState();
   }
+  componentWillReceiveProps(nextProps){
+    if(this.props.show === true && nextProps.show === false){
+      //reset youtube video src to stop it when modal closes
+      let mysrc = this.youtube.src;
+      this.youtube.src = "";
+      this.youtube.src = mysrc;     }
+  }
   render(){
     return (
       <Modal show={this.props.show} >
@@ -33,8 +40,8 @@ export default class ModalEnd extends React.Component {
                Sabemos que no necesitas que te enseñemos cómo crear contraseñas seguras, pero aquí te dejamos un pequeño video por si quieres saber más:
              </div>
               <div className="responsive_video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/GKSRyLdjsPA" frameBorder="0" allow="encrypted-media" allowFullScreen />
-              </div>
+                <iframe ref={(youtube) => { this.youtube = youtube; }} width="560" height="315" src="https://www.youtube.com/embed/mq3M3H1cb0s?rel=0" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
+            </div>
             </div>
               <div className="modal-actions">
                 {UI.with_reset_button ?

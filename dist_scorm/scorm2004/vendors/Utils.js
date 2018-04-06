@@ -1,3 +1,5 @@
+import {TRANSLATIONS} from '../constants/constants';
+
 let next_objective_id = 1;
 
 export function Objective(options){
@@ -35,4 +37,22 @@ export function ResetObjective(objective){
 
 export function shuffleArray(array){
   return array.map((a) => [Math.random(), a]).sort((a, b) => a[0] - b[0]).map((a) => a[1]);
+}
+
+
+export function translate(text){
+  //console.log(TRANSLATIONS[text]);
+  if(TRANSLATIONS[text.toLowerCase()]){
+    return TRANSLATIONS[text.toLowerCase()];
+  } else {
+    return text;
+  }
+}
+
+export function translateTime(text){
+  if(TRANSLATIONS[text]){
+    return TRANSLATIONS[text];
+  } else {
+    return text.replace("second", "segundo").replace("minute", "minuto").replace("hour", "hora").replace("day", "día").replace("week", "semana").replace("months", "meses").replace("month", "mes").replace("year", "año").replace("century", "siglo").replace("centuries", "siglos");
+  }
 }

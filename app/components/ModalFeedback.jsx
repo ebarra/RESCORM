@@ -7,11 +7,17 @@ export default class ModalFeedback extends React.Component {
   constructor(props){
     super(props);
    }
-
+   componentWillReceiveProps(nextProps){
+     if(this.props.show === true && nextProps.show === false){
+       //reset youtube video src to stop it when modal closes
+       let mysrc = this.youtube.src;
+       this.youtube.src = "";
+       this.youtube.src = mysrc;     }
+   }
    render() {
      return (
       <Modal show={this.props.show}>
-        
+
         <div className={"modal-box " + (this.props.show ? "show":"hide")} role="document">
           <div className="close-modal-cross">
             <Icon className="control control_cross" onClick={ () => this.props.handleClose("Feedback")} icon="cross"/>
@@ -22,7 +28,7 @@ export default class ModalFeedback extends React.Component {
               <p>{this.props.activity_feedback}</p>
               <p>Te enseñamos a poner contraseñas:</p>
               <div className="responsive_video">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/4Ips1NTpG_o" frameBorder="0" allow="encrypted-media" allowFullScreen />
+                <iframe ref={(youtube) => { this.youtube = youtube; }} width="560" height="315" src="https://www.youtube.com/embed/mq3M3H1cb0s?rel=0" frameBorder="0" allow="autoplay; encrypted-media" allowFullScreen></iframe>
               </div>
             </div>
             <div className="modal-actions">
