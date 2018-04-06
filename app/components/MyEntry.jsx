@@ -15,7 +15,7 @@ export default class MyEntry extends React.Component {
 
               <div className="input_case">
                 <div className="input_text">
-                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" placeholder="introduce una contraseña para comprobar su fortaleza" value={this.props.value} onChange={this.props.handleInputChange} ref={(input) => { this.passInput = input; }} />
+                  <input className="main_input" type={this.props.hide_pass ? 'password':'text'} autoComplete="off" placeholder="introduce una contraseña" value={this.props.value} onChange={this.props.handleInputChange} ref={(input) => { this.passInput = input; }} />
 
                 </div>
                 <div className="eye_box">
@@ -23,7 +23,7 @@ export default class MyEntry extends React.Component {
                 </div>
               </div>
 
-              <div className={"check_box " + (this.props.game_started && !this.props.game_ended) ? "":"hide" }>
+              <div className={this.props.game_started ? "check_box" : "check_box hide" }>
                 <Icon className="control control_check" viewBox="0 0 45.5 41.7" onClick={this.props.handleSubmit} icon="check"/>
               </div>
             </div>
