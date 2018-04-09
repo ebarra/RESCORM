@@ -74,7 +74,7 @@
       
     .questions_answered
       margin-left: .7em
-      width: 30%
+      width: 10%
       .number_answered
       .progress_bar
         margin: 0 auto
@@ -133,10 +133,10 @@
 
   //----------- CONTROL BAR ------------
   
-  .control_bar
+  .control_box
     .progress_score
-      .time_elapsed
-        display: none
+      .questions_answered
+        width: 20%
 
 
 @media (max-width: $media6) and (orientation: landscape) 
@@ -225,6 +225,14 @@
           height: 1.3em
 
 
+@media (max-width: $media10) 
+
+  .control_box
+    .progress_score
+      .questions_answered
+        width: 25%
+
+
 @media (max-width: $media11) 
 
   .control_box
@@ -234,19 +242,22 @@
 
 @media (max-width: $media12) 
 
-  .control_bar
-    margin: 0
-    padding: 0
-    font-size: 1.3em
-    .control_main_text
-      display: none
-    .control_text
-      .start_game
-        font-size: 1.3em
-        padding: 0
+  .control_box
+    .control_bar
+      margin: 0
+      padding: 0
+      font-size: 1.3em
+      .control_main_text
+        display: none
+      .control_text
+        .start_game
+          font-size: 1.3em
+          padding: 0
 
-  .progress_score
-    font-size: 1.2em
+    .progress_score
+      font-size: 1.2em
+      .questions_answered
+          width: 100%
 
 
 
