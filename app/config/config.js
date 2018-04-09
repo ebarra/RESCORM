@@ -61,7 +61,8 @@ export const UI = {
   message_ok: "no has acertado muchas. es muy importante crear contraseñas seguras para proteger tu intimidad. te dejamos un video para que aprendas un poco más:",
   modal_inst: "para comprobar la contraseña pulsa intro o haz click en el botón de check. tienes todos los intentos que necesites. los controles son muy sencillos:",
   progress_text: "contraseñas creadas",
-  task_list: "contraseñas por crear"
+  task_list: "contraseñas por crear",
+  survey: "https://docs.google.com/forms/d/e/1FAIpQLScB-MEwrRFhVzhjh0osod-4aglZJ9tecinSh-S9nAwYNUZw8Q/viewform"
 };
 
 export const TIPS = [
