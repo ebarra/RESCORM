@@ -81,6 +81,12 @@
               @include hand_cursor
               .list-title-text
                 margin: 0
+            ul
+              li, div
+                max-width: 100%
+                white-space: nowrap
+                text-overflow: ellipsis
+                overflow: hidden
             .control
               @include hand_cursor
               &.control_plus
@@ -97,6 +103,10 @@
               @include flex
               justify-content: space-between
               .individual_task_text
+                max-width: 86%
+                white-space: nowrap
+                text-overflow: ellipsis
+                overflow: hidden
                 //@include hand_cursor
                 //&:hover
                   //color: $secondarycolor
