@@ -26,9 +26,20 @@
         margin-right: 1em
         margin-top: .3em
         font-size: calc(1vh + 1vw + .6em)
+        @include hand_cursor
+        //@include transition_default
         .control
+          fill: rgba(0,0,0,.5)
           &.open
             fill: rgb(0,0,0)
+            @include transition_default
+            &:hover
+              fill: rgba(0,0,0,.5)
+        &:hover
+          .control
+            fill: rgba(0,0,0,1)
+            @include transform(scale(1.2))
+            @include transition_default
 
     .check_box
       @include flex
@@ -38,12 +49,18 @@
       font-size: calc(1vh + 1vw + .45em)
       margin-left: .3em
       background-color: $maincolor
-    .control
-      fill: rgba(0,0,0,.5)
+      @include hand_cursor
       @include transition_default
+      .control
+        fill: rgba(0,0,0,.5)
       &:hover
-        fill: rgb(0,0,0)
+        //opacity: .8
+        background-color: white
         @include transition_default
+        .control
+          @include transform(scale(1.2))
+          fill: $maincolor
+
 
   .bar_box
     width: 100%
