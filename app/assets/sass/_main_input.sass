@@ -19,6 +19,7 @@
           font-size: calc(.75vh + .75vw + .3em)
           padding: .9em 1.3em
           display: inline
+          @include select_text(auto)
           border: 0
           &::placeholder
             color: rgba(0,0,0,.5)
@@ -94,7 +95,7 @@
         opacity: 1
 
 
-@media (max-width: $media6) 
+@media (max-width: $media6)
 
   .form_pass
     .input_box
@@ -106,7 +107,7 @@
           width: 4%
 
 
-@media (max-width: $media9) 
+@media (max-width: $media9)
 
   .form_pass
     .input_box
@@ -122,14 +123,14 @@
 
 
 @media (max-width: $media10) and (orientation: landscape)
-  
+
   .form_pass
     .character_box
       & > span
         font-size: calc(.7vw + .7vh + .4em)
 
 
-@media (max-width: $media12) 
+@media (max-width: $media12)
 
   .form_pass
     .input_box
@@ -140,11 +141,9 @@
         .bar
           width: 4%
 
-@media (max-width: $media13) 
+@media (max-width: $media13)
 
   .form_pass
     .character_box
       & > span
         font-size: calc(.4vw + .4vh + .4em)
-         
-
