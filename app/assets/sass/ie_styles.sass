@@ -1,9 +1,25 @@
 
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none), (-ms-ime-align:auto)
-  #root
-    background-color: black
+@import mixins
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none), (-ms-ime-align:auto) //IE 10 & 11
+  
+	*
+		cursor: auto !important
 
-@supports (-ms-ime-align:auto)
-  #root
-    background-color: black
+	.password_feedback
+	  opacity: 1
+	  display: block
+	  &.hide_op
+	    opacity: 1
+	    display: none
+
+	.main_box
+	  @include transform (translateY(0))
+	  &.with_feedback
+	    @include transform (translateY(0))
+	    
+
+@supports (-ms-ime-align:auto) //EDGE
+  
+  *
+		cursor: auto !important

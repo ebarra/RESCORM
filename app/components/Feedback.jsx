@@ -103,7 +103,7 @@ export default class Feedback extends React.Component {
     }
     return (
       <div>
-          <div className={"password_feedback " + level} style={{opacity: (!this.props.show_tip && this.props.password !=="") ? 1 : 0}}>{text}</div>
+          <div className={"password_feedback " + level + ((!this.props.show_tip && this.props.password !=="") ? "" : " hide_op")}>{text}</div>
           <div className={(!this.props.show_tip && this.props.password !=="") ? "main_box with_feedback" : "main_box"}>
               {(this.props.show_tip || this.props.password ==="") ? main_text : pass_info }
           </div>
