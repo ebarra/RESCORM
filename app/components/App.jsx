@@ -47,6 +47,7 @@ export class App extends React.Component {
     this.setState(INITIAL_STATE);
   }
   handleInputChange(event) {
+    console.log("input change")
     this.setState({value: event.target.value});
     if(this.props.password.game_started===false || this.props.password.game_ended===true){
       this.props.dispatch(newPassWithScorm(event.target.value));

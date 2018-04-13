@@ -48,10 +48,10 @@ $media15: 320px
 //----------- CURSORS ------------
 
 @mixin cursor
- cursor: url('../images/cursors/cursor_black.png'), url('../images/cursors/cursor_black.cur'), default
+ cursor: url('../images/cursors/cursor_black.png'), default
 
 @mixin hand_cursor
- cursor: url('../images/cursors/hand_cursor_black.png') 8 0, url('../images/cursors/hand_cursor_black.cur') 8 0, default
+ cursor: url('../images/cursors/hand_cursor_black.png') 8 0, default
 
 
 
@@ -156,10 +156,8 @@ $media15: 320px
   -o-backface-visibility: $value
   backface-visibility: $value
 
-@mixin no_select_text 
-  -webkit-user-select: none 
+@mixin no_select_text
+  -webkit-user-select: none
   -moz-user-select: none
   -ms-user-select: none
   user-select: none
-
-  
