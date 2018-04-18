@@ -52,7 +52,7 @@ export const UI = {
   main_text: "comprueba la fortaleza de tus contraseñas",
   initial_text:"comprueba la fortaleza de tus contraseñas con passcheck una webapp de elab",
   instructions:"para comprobar la contraseña pulsa intro o haz click en el botón de check. tienes todos los intentos que necesites. los controles son muy sencillos:",
-  final_text:"Has terminado la prueba. Puedes seguir comprobando contraseñas con passcheck una webapp de elab",
+  final_text:"has terminado la prueba. puedes seguir comprobando contraseñas con passcheck una webapp de elab",
   feedback_weak: "la contraseña introducida es débil",
   feedback_medium: "la contraseña introducida es media",
   feedback_secure: "la contraseña introducida es segura",
