@@ -31,9 +31,11 @@
 
   .main_text
     color: $secondarycolor
-    font-size: calc(2.5vh + 2vw + 2em)
     font-weight: bold
-    padding: 3.5vw 16vw 2vw 4vw
+    line-height: calc(.8vh + 1em)
+    font-size: calc(4vw + 2em)
+    padding: .6em
+    //padding: 3.5vw 16vw 2vw 4vw
     margin: 0
     &.tip
       font-size: calc(1.5vh + 1vw + 1.5em)
@@ -150,6 +152,22 @@
 
   .main_box
     @include transform (translateY(-7.2vw))
+
+
+
+@media (max-width: 818px)
+  @media (max-height: 613px)
+  
+    .main_box
+      height: calc(100vh - 15em)
+      .main_text
+        font-size: calc(3.5vw + 2em)
+        line-height: calc(.6vw + 1em)
+        padding: .7em
+      &.with_feedback
+        height: calc(100vh - 19em)
+
+
 
 
 @media (max-width: $media7)
