@@ -1,6 +1,6 @@
 # RESCORM
 
-RESCORM is a boilerplate for creating SCORM-compliant React applications.
+RESCORM is a boilerplate for creating SCORM-compliant React applications.h
 
 
 # Features
