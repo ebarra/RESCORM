@@ -94,6 +94,7 @@ function checkPasswd(state, action){
           //add it to objectives_accomplished
           this_try_gets_one_objective = true;
           receivedState.objectives_accomplished.push(objectives_left[i]);
+          break;
         }
       }
       if(!this_try_gets_one_objective){

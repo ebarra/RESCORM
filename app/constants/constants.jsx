@@ -13,7 +13,7 @@ export const INITIAL_STATE = {
   },
   wait_for_user_profile:false,
   password:{
-      game_started: true,
+      game_started: false,
       game_ended: false,
       number_of_tries: 0,
       password: "",
