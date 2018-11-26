@@ -34,3 +34,6 @@ npm-debug.log
 .vscode
 
 /coverage
+
+##MACOS Files
+.DS_Store
